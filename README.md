@@ -3,8 +3,24 @@ React Boilerplate
 
 Boilerplate React + Webpack + ES6 + Makefile
 
+Install
+---
+
+`make install`
+
 Run
 ---
 
-- `make run`
-- go to http://127.0.0.1:9000
+`make run`
+
+Build
+---
+
+`make build`
+
+License
+---
+
+MIT
+
+**Free Software, Hell Yeah!**

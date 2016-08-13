@@ -1,14 +1,11 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const path = require('path');
-const root = path.resolve(__dirname);
 
 module.exports = {
-    context: `${__dirname}/src`,
     entry: {
         index: [
-            './js/main.js',
-            './css/main.scss',
+            './src/js/main.js',
+            './src/css/main.scss',
         ],
     },
     output: {
@@ -18,7 +15,7 @@ module.exports = {
     module: {
         loaders: [
             { test: /\.html$/, loader: 'html' },
-            { test: /\.json$/, loader: 'json-loader' },
+            { test: /\.json$/, loader: 'json' },
             { test: /\.s?css$/, loader: ExtractTextPlugin.extract('css!sass') },
             {
                 test: /\.(png|jpg|gif|svg|woff2?|eot|ttf)(\?.*)?$/,
@@ -30,9 +27,8 @@ module.exports = {
             },
             {
                 test: /\.jsx?$/,
-                loader: 'babel-loader',
+                loader: 'babel',
                 exclude: /node_modules/,
-                include: root,
             },
         ],
     },
@@ -46,8 +42,4 @@ module.exports = {
             allChunks: false,
         }),
     ],
-    resolve: {
-        root: path.resolve(`${__dirname}`),
-        extensions: ['', '.js'],
-    },
 };

@@ -1,4 +1,7 @@
-run:
+install: ## Install application
+	@ npm i
+
+run: ## Run application
 	@ echo '* Start webpack dev server *'
 	@ NODE_ENV=development TARGET=web ./node_modules/.bin/webpack-dev-server \
 		-d \
@@ -9,3 +12,7 @@ run:
 		--no-info \
 		--hot \
 		--inline
+
+build: ## Build with webpack
+	@ mkdir -p dist
+	@ ./node_modules/.bin/webpack -p --progress --colors

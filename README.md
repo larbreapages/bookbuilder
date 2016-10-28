@@ -1,7 +1,7 @@
-React Boilerplate
+Module
 ===
 
-Boilerplate React + Webpack + ES6 + Makefile
+Module for larbreapages.fr
 
 Install
 ---

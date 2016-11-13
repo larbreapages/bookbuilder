@@ -3,7 +3,7 @@ const initialState = {
     color: 'black',
     format: 'A5',
     pages: 40,
-    gilding: 'Put your text',
+    gilding: 'Put your text...',
 };
 
 export default function book(state = initialState, action) {

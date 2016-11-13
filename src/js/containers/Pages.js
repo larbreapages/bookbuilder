@@ -8,7 +8,7 @@ class Pages extends Component {
         return (
             <div>
                 <p>Choose Pages Number</p>
-                <select value={this.props.book.pages} onChange={e => this.props.choosePagesNumber(e.target.value)}>
+                <select defaultValue={this.props.book.pages} onChange={e => this.props.choosePagesNumber(e.target.value)}>
                     <option>10</option>
                     <option>20</option>
                     <option>30</option>

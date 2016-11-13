@@ -1,32 +1,23 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { RadioGroup, Radio } from 'react-radio-group';
 import { chooseBookBinding } from '../actions/index';
 
 class BookBinding extends Component {
+    handleChange(value) {
+        this.props.chooseBookBinding(value);
+        this.setState({ selectedValue: value });
+    }
+
     render() {
         return (
             <div>
                 <p>Choose Bookbinding</p>
-                <label>
-                    <input
-                        type="radio"
-                        name="bookbinding"
-                        value="traditional"
-                        // checked={this.props.book.bookbinding === 'traditional'}
-                        onChange={e => this.props.chooseBookBinding(e.target.value)}
-                    />
-                    Traditional Bookbinding
-                </label>
-                <label>
-                    <input
-                        type="radio"
-                        name="bookbinding"
-                        value="modern"
-                        onChange={e => this.props.chooseBookBinding(e.target.value)}
-                    />
-                    Modern Bookbinding
-                </label>
+                <RadioGroup name="bookbinding" selectedValue={this.props.book.bookbinding} onChange={e => this.handleChange(e)}>
+                    <Radio value="traditional" />Traditional Bookbinding
+                    <Radio value="modern" />Modern Bookbinding
+                </RadioGroup>
             </div>
         );
     }

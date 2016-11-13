@@ -20,6 +20,9 @@ export default function book(state = initialState, action) {
     case 'CHOOSE_GILDING':
         state.gilding = action.payload;
         return state;
+    case 'CHOOSE_FORMAT':
+        state.format = action.payload;
+        return state;
     default:
         return state;
     }

@@ -25,3 +25,10 @@ export const chooseGilding = (gilding) => {
         payload: gilding,
     };
 };
+
+export const chooseFormat = (format) => {
+    return {
+        type: 'CHOOSE_FORMAT',
+        payload: format,
+    };
+};

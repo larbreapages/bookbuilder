@@ -1,0 +1,3 @@
+- [ ] Form Validation
+- [ ] Add [devtools](https://github.com/gaearon/redux-devtools/)
+- [ ] Handle defaults values

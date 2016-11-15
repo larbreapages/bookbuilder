@@ -1,1 +1,20 @@
 @import "~normalize.css/normalize.css";
+
+#root {
+    border: 1px solid black;
+    width: 500px;
+    margin: auto;
+    margin-top: 25px;
+    padding: 5px;
+}
+
+.colors {
+    display: flex;
+}
+
+.color {
+    padding: 50px;
+    border: 1px solid black;
+    margin-right: 20px;
+    margin-top: 5px;
+}

@@ -16,6 +16,7 @@ class Color extends Component {
                 <p>Choose Color</p>
                 <RadioGroup name="color" selectedValue={this.props.book.color} onChange={e => this.handleChange(e)}>
                     <Radio value="blue" />Blue
+                    <Radio value="black" />Black
                     <Radio value="yellow" />Yellow
                     <Radio value="green" />Green
                 </RadioGroup>

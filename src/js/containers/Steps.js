@@ -1,30 +1,17 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Steps from 'react-steps';
+import { connect } from 'react-redux';
 
-const initSteps = [
-    {
-        text: 'Bookbinding',
-        isActive: true,
-        isDone: false,
-    },
-    {
-        text: 'Colors',
-        isActive: false,
-        isDone: false,
-    },
-    {
-        text: 'Format',
-        isActive: false,
-        isDone: false,
-    },
-    {
-        text: 'Pages',
-        isActive: false,
-        isDone: false,
-    },
-];
+class StepsClass extends Component {
+    render() {
+        return <div><Steps items={this.props.steps} type={'point'} /></div>;
+    }
+}
 
-export default () => {
-    return <div><Steps items={initSteps} type={'point'} /></div>;
-};
+function mapStateToProps(state) {
+    return {
+        steps: state.steps,
+    };
+}
 
+export default connect(mapStateToProps)(StepsClass);

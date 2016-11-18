@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button } from 'semantic-ui-react';
 import BookBinding from '../containers/BookBinding';
 import Color from '../containers/Color';
 import Pages from '../containers/Pages';
@@ -17,7 +18,7 @@ const App = () => {
             <Format />
             <Pages />
             <Gilding />
-            <button>Purchase</button>
+            <Button>Purchase</Button>
         </div>
     );
 };

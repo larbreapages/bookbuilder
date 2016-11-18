@@ -5,6 +5,7 @@ import Pages from '../containers/Pages';
 import Format from '../containers/Format';
 import Gilding from '../containers/Gilding';
 import Steps from '../containers/Steps';
+// import StripeCheckout from '../containers/StripeCheckout';
 
 const App = () => {
     return (
@@ -16,7 +17,7 @@ const App = () => {
             <Format />
             <Pages />
             <Gilding />
-            <button>Payment</button>
+            <button>Purchase</button>
         </div>
     );
 };

@@ -32,3 +32,10 @@ export const chooseFormat = (format) => {
         payload: format,
     };
 };
+
+export const nextStep = (step) => {
+    return {
+        type: 'NEXT_STEP',
+        payload: step,
+    };
+};

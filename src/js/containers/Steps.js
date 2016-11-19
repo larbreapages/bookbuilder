@@ -7,20 +7,36 @@ import BookBinding from './BookBinding';
 import Color from './Color';
 import Pages from './Pages';
 import Format from './Format';
-import Gilding from './Gilding';
 
 class StepsClass extends Component {
+    renderButtons() {
+        const previousButton = <button onClick={() => this.props.previousStep()}>Previous</button>;
+
+        let nextButton;
+        if (this.props.currentStep < this.props.steps.length) {
+            nextButton = <button onClick={() => this.props.nextStep()}>Next</button>;
+        }
+
+        let purchaseButton;
+        if (this.props.currentStep === this.props.steps.length) {
+            purchaseButton = <button>Purchase</button>;
+        }
+
+        return (<div>
+            { previousButton }
+            { nextButton }
+            { purchaseButton }
+        </div>);
+    }
+
     render() {
-        console.log(this.props.currentStep);
         return (<div>
             <Steps items={this.props.steps} type={'point'} />
             { this.props.currentStep === 1 ? <BookBinding /> : null }
             { this.props.currentStep === 2 ? <Color /> : null }
             { this.props.currentStep === 3 ? <Format /> : null }
             { this.props.currentStep === 4 ? <Pages /> : null }
-            { this.props.currentStep === 5 ? <Gilding /> : null }
-            <button onClick={() => this.props.previousStep()}>Previous</button>
-            <button onClick={() => this.props.nextStep()}>Next</button>
+            { this.renderButtons() }
         </div>);
     }
 }

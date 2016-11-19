@@ -2,14 +2,11 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { RadioGroup, Radio } from 'react-radio-group';
-import { chooseFormat, nextStep } from '../actions/index';
-
-const step = 2;
+import { chooseFormat } from '../actions/index';
 
 class Format extends Component {
     handleChange(value) {
         this.props.chooseFormat(value);
-        this.props.nextStep(step);
         this.setState({ selectedValue: value });
     }
 
@@ -33,7 +30,7 @@ function mapStateToProps(state) {
 }
 
 function matchDispatchToProps(dispatch) {
-    return bindActionCreators({ chooseFormat, nextStep }, dispatch);
+    return bindActionCreators({ chooseFormat }, dispatch);
 }
 
 export default connect(mapStateToProps, matchDispatchToProps)(Format);

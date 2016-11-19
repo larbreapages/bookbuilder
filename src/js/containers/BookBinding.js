@@ -2,14 +2,11 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { RadioGroup, Radio } from 'react-radio-group';
-import { chooseBookBinding, nextStep } from '../actions/index';
-
-const step = 0;
+import { chooseBookBinding } from '../actions/index';
 
 class BookBinding extends Component {
     handleChange(value) {
         this.props.chooseBookBinding(value);
-        this.props.nextStep(step);
         this.setState({ selectedValue: value });
     }
 
@@ -33,7 +30,7 @@ function mapStateToProps(state) {
 }
 
 function matchDispatchToProps(dispatch) {
-    return bindActionCreators({ chooseBookBinding, nextStep }, dispatch);
+    return bindActionCreators({ chooseBookBinding }, dispatch);
 }
 
 export default connect(mapStateToProps, matchDispatchToProps)(BookBinding);

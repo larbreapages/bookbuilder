@@ -7,6 +7,7 @@ import BookBinding from './BookBinding';
 import Color from './Color';
 import Pages from './Pages';
 import Format from './Format';
+import StripeCheckout from './StripeCheckout';
 
 class StepsClass extends Component {
     renderButtons() {
@@ -19,7 +20,7 @@ class StepsClass extends Component {
 
         let purchaseButton;
         if (this.props.currentStep === this.props.steps.length) {
-            purchaseButton = <button>Purchase</button>;
+            purchaseButton = <StripeCheckout />;
         }
 
         return (<div>

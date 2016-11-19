@@ -17,8 +17,6 @@ export default class TakeMoney extends React.Component {
                 name="L'arbre a pages"
                 description="Relieur"
                 image="http://larbreapages.fr/logo-a5ef9a2.png"
-                ComponentClass="div"
-                panelLabel="Payer"
                 amount={1000}
                 stripeKey="pk_test_X5QHKlsqDXQVEMBVbHyzicpd"
                 locale="auto"
@@ -26,7 +24,7 @@ export default class TakeMoney extends React.Component {
                 token={this.onToken}
                 bitcoin
                 alipay
-            ><button className="btn btn-primary">Purchase</button></StripeCheckout>
+            ><button>Purchase</button></StripeCheckout>
         );
     }
 }

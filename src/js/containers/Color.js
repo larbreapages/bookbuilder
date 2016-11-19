@@ -2,14 +2,11 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { RadioGroup, Radio } from 'react-radio-group';
-import { chooseColor, nextStep } from '../actions/index';
-
-const step = 1;
+import { chooseColor } from '../actions/index';
 
 class Color extends Component {
     handleChange(value) {
         this.props.chooseColor(value);
-        this.props.nextStep(step);
         this.setState({ selectedValue: value });
     }
 
@@ -35,7 +32,7 @@ function mapStateToProps(state) {
 }
 
 function matchDispatchToProps(dispatch) {
-    return bindActionCreators({ chooseColor, nextStep }, dispatch);
+    return bindActionCreators({ chooseColor }, dispatch);
 }
 
 export default connect(mapStateToProps, matchDispatchToProps)(Color);

@@ -21,6 +21,11 @@ const initialState = {
             isActive: false,
             isDone: false,
         },
+        {
+            text: 'Gilding',
+            isActive: false,
+            isDone: false,
+        },
     ],
 };
 

@@ -1,9 +1,9 @@
 const initialState = {
     bookbinding: 'traditional',
     color: 'black',
-    format: 'A5',
-    pages: 40,
-    gilding: 'Put your text...',
+    format: 'small',
+    pages: 80,
+    gilding: 'Type your text...',
 };
 
 export default function book(state = initialState, action) {

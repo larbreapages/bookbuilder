@@ -22,8 +22,8 @@ export default class TakeMoney extends React.Component {
                 locale="auto"
                 email=""
                 token={this.onToken}
+                shippingAddress
                 bitcoin
-                alipay
             ><button>Purchase</button></StripeCheckout>
         );
     }

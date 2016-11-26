@@ -13,10 +13,11 @@ class Format extends Component {
     render() {
         return (
             <div>
-                <p>Choose Format</p>
+                <p>Choose your format:</p>
                 <RadioGroup name="format" selectedValue={this.props.book.format} onChange={e => this.handleChange(e)}>
-                    <Radio value="A5" />A5
-                    <Radio value="A6" />A6
+                    <div><Radio value="small" /> Small (16x12)</div>
+                    <div><Radio value="middle" /> Middle (20x16)</div>
+                    <div><Radio value="big" /> Big (24x20)</div>
                 </RadioGroup>
             </div>
         );

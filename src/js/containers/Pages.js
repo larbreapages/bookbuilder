@@ -7,14 +7,8 @@ class Pages extends Component {
     render() {
         return (
             <div>
-                <p>Choose Pages Number</p>
-                <select defaultValue={this.props.book.pages} onChange={e => this.props.choosePagesNumber(e.target.value)}>
-                    <option>10</option>
-                    <option>20</option>
-                    <option>30</option>
-                    <option>40</option>
-                    <option>50</option>
-                </select>
+                <label htmlFor="pages">Choose your number of pages: </label>
+                <input type="number" id="pages" defaultValue={this.props.book.pages} min="80" max="500" onChange={e => this.props.choosePagesNumber(e.target.value)} />
             </div>
         );
     }

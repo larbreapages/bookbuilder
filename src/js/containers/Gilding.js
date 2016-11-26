@@ -7,8 +7,8 @@ class Gilding extends Component {
     render() {
         return (
             <div>
-                <p>Choose Gilding</p>
-                <input type="text" defaultValue={this.props.book.gilding} onChange={e => this.props.chooseGilding(e.target.value)} />
+                <label htmlFor="gilding">Choose your text: </label>
+                <input type="text" id="gilding" defaultValue={this.props.book.gilding} onChange={e => this.props.chooseGilding(e.target.value)} />
             </div>
         );
     }

@@ -2,19 +2,24 @@
 
 #root {
     border: 1px solid black;
-    width: 500px;
+	width: 600px;
     margin: auto;
     margin-top: 25px;
-    padding: 5px;
+    padding: 10px;
 }
 
-.colors {
+.center {
+    text-align: center;
+}
+
+.choices {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 
-.color {
-    padding: 50px;
-    border: 1px solid black;
-    margin-right: 20px;
-    margin-top: 5px;
+.footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
 }

@@ -1,11 +1,18 @@
 @import "~normalize.css/normalize.css";
 
-#root {
+div[data-reactroot] {
+    display: flex;
+    flex-direction: column;
     border: 1px solid black;
-	width: 600px;
+    width: 600px;
+    min-height: 430px;
     margin: auto;
     margin-top: 25px;
     padding: 10px;
+}
+
+.steps {
+    flex: 1;
 }
 
 .center {
@@ -16,12 +23,16 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+
+    img {
+        border: 1px solid black;
+    }
 }
 
 .footer {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 25px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 25px;
 }
 
 // @TODO: animation, transition propertie

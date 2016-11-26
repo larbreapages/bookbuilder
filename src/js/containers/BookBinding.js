@@ -18,15 +18,15 @@ class BookBinding extends Component {
                 <p>Choose your bookbinding:</p>
                 <RadioGroup className="choices" name="bookbinding" selectedValue={this.props.book.bookbinding} onChange={e => this.handleChange(e)}>
                     <div>
-                        <img src="http://placehold.it/200x200" alt="modern" />
+                        <img src="http://bit.ly/2gxLpcS" alt="traditional" />
                         <div className="center">
-                            <Radio value="modern" />Modern Bookbinding
+                            <Radio value="traditional" />Traditional Bookbinding
                         </div>
                     </div>
                     <div>
-                        <img src="http://placehold.it/200x200" alt="traditional" />
+                        <img src="http://bit.ly/2gxLopk" alt="modern" />
                         <div className="center">
-                            <Radio value="traditional" />Traditional Bookbinding
+                            <Radio value="modern" />Modern Bookbinding
                         </div>
                     </div>
                 </RadioGroup>

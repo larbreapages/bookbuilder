@@ -11,7 +11,7 @@ import Summary from './Summary';
 
 class StepsClass extends Component {
     render() {
-        return (<div>
+        return (<div className="steps">
             <Steps items={this.props.steps} type={'point'} />
             { this.props.currentStep === 1 ? <BookBinding /> : null }
             { this.props.currentStep === 2 ? <Color /> : null }

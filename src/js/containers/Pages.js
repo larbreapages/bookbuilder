@@ -5,12 +5,10 @@ import { choosePagesNumber } from '../actions/index';
 
 class Pages extends Component {
     render() {
-        return (
-            <div>
-                <label htmlFor="pages">Choose your number of pages: </label>
-                <input type="number" id="pages" defaultValue={this.props.book.pages} min="80" max="500" onChange={e => this.props.choosePagesNumber(e.target.value)} />
-            </div>
-        );
+        return (<div>
+            <p>Choose your number of pages:</p>
+            <input type="number" id="pages" defaultValue={this.props.book.pages} min="80" max="500" onChange={e => this.props.choosePagesNumber(e.target.value)} />
+        </div>);
     }
 }
 

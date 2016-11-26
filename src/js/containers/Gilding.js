@@ -5,12 +5,10 @@ import { chooseGilding } from '../actions/index';
 
 class Gilding extends Component {
     render() {
-        return (
-            <div>
-                <label htmlFor="gilding">Choose your text: </label>
-                <input type="text" id="gilding" defaultValue={this.props.book.gilding} onChange={e => this.props.chooseGilding(e.target.value)} />
-            </div>
-        );
+        return (<div>
+            <p>Choose your text: </p>
+            <input type="text" id="gilding" defaultValue={this.props.book.gilding} onChange={e => this.props.chooseGilding(e.target.value)} />
+        </div>);
     }
 
 }

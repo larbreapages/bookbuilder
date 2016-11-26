@@ -1,5 +1,6 @@
 const initialState = {
     currentStep: 1,
+    accept: false,
     steps: [
         {
             text: 'Bookbinding',
@@ -18,6 +19,16 @@ const initialState = {
         },
         {
             text: 'Pages',
+            isActive: false,
+            isDone: false,
+        },
+        {
+            text: 'Gilding',
+            isActive: false,
+            isDone: false,
+        },
+        {
+            text: 'Summary',
             isActive: false,
             isDone: false,
         },
@@ -63,6 +74,9 @@ export default function steps(state = initialState, action) {
                 return step;
             }),
         };
+    }
+    case 'ACCEPT_CONDITIONS': {
+        return { ...state, accept: !state.accept };
     }
     default:
         return state;

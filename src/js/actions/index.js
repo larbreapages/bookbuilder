@@ -5,3 +5,4 @@ export const chooseGilding = gilding => ({ type: 'CHOOSE_GILDING', payload: gild
 export const chooseFormat = format => ({ type: 'CHOOSE_FORMAT', payload: format });
 export const nextStep = () => ({ type: 'NEXT_STEP' });
 export const previousStep = () => ({ type: 'PREVIOUS_STEP' });
+export const acceptConditions = () => ({ type: 'ACCEPT_CONDITIONS' });

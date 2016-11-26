@@ -1,7 +1,8 @@
 import React from 'react';
 import StripeCheckout from 'react-stripe-checkout';
+import { connect } from 'react-redux';
 
-export default class TakeMoney extends React.Component {
+class TakeMoney extends React.Component {
     onToken(token) {
         fetch('/save-stripe-token', {
             method: 'POST',
@@ -14,7 +15,8 @@ export default class TakeMoney extends React.Component {
     render() {
         return (
             <StripeCheckout
-                name="L'arbre a pages"
+                name="L'Arbre à Pages"
+                panelLabel="Payment"
                 description="Relieur"
                 image="http://larbreapages.fr/logo-a5ef9a2.png"
                 amount={1000}
@@ -22,9 +24,18 @@ export default class TakeMoney extends React.Component {
                 locale="auto"
                 email=""
                 token={this.onToken}
+                shippingAddress
                 bitcoin
-                alipay
-            ><button>Purchase</button></StripeCheckout>
+            >
+            <button disabled={!this.props.accept}>Purchase</button></StripeCheckout>
         );
     }
 }
+
+function mapStateToProps(state) {
+    return {
+        accept: state.steps.accept,
+    };
+}
+
+export default connect(mapStateToProps)(TakeMoney);

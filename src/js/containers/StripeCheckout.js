@@ -15,6 +15,7 @@ export default class TakeMoney extends React.Component {
         return (
             <StripeCheckout
                 name="L'arbre a pages"
+                panelLabel="Payment"
                 description="Relieur"
                 image="http://larbreapages.fr/logo-a5ef9a2.png"
                 amount={1000}

@@ -26,6 +26,11 @@ const initialState = {
             isActive: false,
             isDone: false,
         },
+        {
+            text: 'Summary',
+            isActive: false,
+            isDone: false,
+        },
     ],
 };
 

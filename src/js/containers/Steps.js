@@ -7,6 +7,7 @@ import Color from './Color';
 import Format from './Format';
 import Pages from './Pages';
 import Gilding from './Gilding';
+import Summary from './Summary';
 
 class StepsClass extends Component {
     render() {
@@ -17,6 +18,7 @@ class StepsClass extends Component {
             { this.props.currentStep === 3 ? <Format /> : null }
             { this.props.currentStep === 4 ? <Pages /> : null }
             { this.props.currentStep === 5 ? <Gilding /> : null }
+            { this.props.currentStep === 6 ? <Summary /> : null }
         </div>);
     }
 }

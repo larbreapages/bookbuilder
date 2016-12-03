@@ -6,6 +6,7 @@ module.exports = {
         index: [
             './src/js/index.js',
             './src/css/main.scss',
+            './src/css/main.less',
         ],
     },
     output: {
@@ -18,6 +19,7 @@ module.exports = {
             { test: /\.json$/, loader: 'json' },
             { test: /\.s?css$/, loader: ExtractTextPlugin.extract('css!sass') },
             { test: /\.jsx?$/, loader: 'babel', exclude: /node_modules/ },
+            { test: /\.less$/, loader: 'style-loader!css-loader!less-loader' },
             {
                 test: /\.(png|jpg|gif|svg|woff2?|eot|ttf)(\?.*)?$/,
                 loader: 'url',

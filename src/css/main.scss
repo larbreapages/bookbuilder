@@ -5,7 +5,7 @@ div[data-reactroot] {
     flex-direction: column;
     border: 1px solid black;
     width: 600px;
-    min-height: 430px;
+    min-height: 380px;
     margin: auto;
     margin-top: 25px;
     padding: 10px;
@@ -32,7 +32,5 @@ div[data-reactroot] {
 .footer {
     display: flex;
     justify-content: space-between;
-    margin-top: 25px;
 }
 
-// @TODO: animation, transition propertie

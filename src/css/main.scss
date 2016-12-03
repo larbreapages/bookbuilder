@@ -5,10 +5,14 @@ div[data-reactroot] {
     flex-direction: column;
     border: 1px solid black;
     width: 600px;
-    min-height: 380px;
+    min-height: 340px;
     margin: auto;
     margin-top: 25px;
     padding: 10px;
+}
+
+.ant-steps {
+    margin-bottom: 10px;
 }
 
 .steps {

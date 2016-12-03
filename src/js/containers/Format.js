@@ -3,6 +3,8 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Radio } from 'antd';
 import { chooseFormat } from '../actions/index';
+import Pages from './Pages';
+import Gilding from './Gilding';
 
 const RadioGroup = Radio.Group;
 
@@ -21,6 +23,8 @@ class Format extends Component {
                     <Radio value={'middle'}> Middle (20x16)</Radio>
                     <Radio value={'big'}> Big (24x20)</Radio>
                 </RadioGroup>
+                <Pages />
+                <Gilding />
             </div>
         );
     }

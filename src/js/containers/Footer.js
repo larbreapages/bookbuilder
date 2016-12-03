@@ -7,7 +7,7 @@ import StripeCheckout from './StripeCheckout';
 
 class Footer extends Component {
     render() {
-        const previousButton = <Button type="ghost" onClick={() => this.props.previousStep()}>Previous</Button>;
+        const previousButton = <Button type="ghost" disabled={!this.props.currentStep} onClick={() => this.props.previousStep()}>Previous</Button>;
 
         let nextButton;
         if (this.props.currentStep < this.props.steps.length - 1) {

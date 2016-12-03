@@ -31,14 +31,14 @@ class TakeMoney extends React.Component {
                 shippingAddress
                 bitcoin
             >
-            <Button type="primary" disabled={!this.props.accept}>Purchase</Button></StripeCheckout>
+            <Button type="primary" disabled={!this.props.acceptConditions}>Purchase</Button></StripeCheckout>
         );
     }
 }
 
 function mapStateToProps(state) {
     return {
-        accept: state.steps.accept,
+        acceptConditions: state.steps.acceptConditions,
     };
 }
 

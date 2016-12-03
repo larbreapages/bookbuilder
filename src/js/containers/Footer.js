@@ -10,12 +10,12 @@ class Footer extends Component {
         const previousButton = <Button type="ghost" onClick={() => this.props.previousStep()}>Previous</Button>;
 
         let nextButton;
-        if (this.props.currentStep < this.props.steps.length) {
+        if (this.props.currentStep < this.props.steps.length - 1) {
             nextButton = <Button type="ghost" onClick={() => this.props.nextStep()}>Next</Button>;
         }
 
         let purchaseButton;
-        if (this.props.currentStep === this.props.steps.length) {
+        if (this.props.currentStep === this.props.steps.length - 1) {
             purchaseButton = <StripeCheckout />;
         }
 

@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { Input } from 'antd';
 import { chooseGilding } from '../actions/index';
 
 class Gilding extends Component {
     render() {
         return (<div>
             <p>Choose your text: </p>
-            <input type="text" id="gilding" defaultValue={this.props.book.gilding} onChange={e => this.props.chooseGilding(e.target.value)} />
+            <Input type="text" id="gilding" defaultValue={this.props.book.gilding} onChange={e => this.props.chooseGilding(e.target.value)} />
         </div>);
     }
 

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { Checkbox } from 'antd';
 import { acceptConditions } from '../actions/index';
 
 class Summary extends Component {
@@ -15,7 +16,7 @@ class Summary extends Component {
                     <li>Pages: {this.props.book.pages}</li>
                     <li>Gilding: {this.props.book.gilding}</li>
                 </ul>
-                <input type="checkbox" defaultChecked={this.props.accept} onClick={() => this.props.acceptConditions()} /> I accept <a href="#">General Terms and Conditions of Sale</a>
+                <Checkbox checked={this.props.accept} onChange={() => this.props.acceptConditions()}>I accept <a href="#">General Terms and Conditions of Sale</a></Checkbox>
             </div>
         );
     }
@@ -24,7 +25,7 @@ class Summary extends Component {
 function mapStateToProps(state) {
     return {
         book: state.book,
-        accept: state.steps.accept,
+        accept: state.steps.acceptConditions,
     };
 }
 

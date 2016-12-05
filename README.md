@@ -1,7 +1,7 @@
-Module
+Bookbuilder
 ===
 
-Module for larbreapages.fr
+Bookbuilder for larbreapages.fr with react.js
 
 Install
 ---

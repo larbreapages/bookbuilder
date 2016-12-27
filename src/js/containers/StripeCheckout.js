@@ -1,6 +1,7 @@
 import React from 'react';
 import StripeCheckout from 'react-stripe-checkout';
 import { connect } from 'react-redux';
+import { Button } from 'antd';
 
 class TakeMoney extends React.Component {
     onToken(token) {
@@ -30,14 +31,14 @@ class TakeMoney extends React.Component {
                 shippingAddress
                 bitcoin
             >
-            <button disabled={!this.props.accept}>Purchase</button></StripeCheckout>
+            <Button type="primary" disabled={!this.props.acceptConditions}>Purchase</Button></StripeCheckout>
         );
     }
 }
 
 function mapStateToProps(state) {
     return {
-        accept: state.steps.accept,
+        acceptConditions: state.steps.acceptConditions,
     };
 }
 

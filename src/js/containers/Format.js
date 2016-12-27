@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { RadioGroup, Radio } from 'react-radio-group';
+import { Radio } from 'antd';
 import { chooseFormat } from '../actions/index';
+import Pages from './Pages';
+import Gilding from './Gilding';
+
+const RadioGroup = Radio.Group;
 
 class Format extends Component {
     handleChange(value) {
@@ -14,11 +18,13 @@ class Format extends Component {
         return (
             <div>
                 <p>Choose your format:</p>
-                <RadioGroup name="format" selectedValue={this.props.book.format} onChange={e => this.handleChange(e)}>
-                    <div><Radio value="small" /> Small (16x12)</div>
-                    <div><Radio value="middle" /> Middle (20x16)</div>
-                    <div><Radio value="big" /> Big (24x20)</div>
+                <RadioGroup name="format" value={this.props.book.format} onChange={e => this.handleChange(e.target.value)}>
+                    <Radio value={'small'}>Small (16x12)</Radio>
+                    <Radio value={'middle'}> Middle (20x16)</Radio>
+                    <Radio value={'big'}> Big (24x20)</Radio>
                 </RadioGroup>
+                <Pages />
+                <Gilding />
             </div>
         );
     }

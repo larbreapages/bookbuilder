@@ -1,20 +1,21 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { Button } from 'antd';
 import { nextStep, previousStep } from '../actions/index';
 import StripeCheckout from './StripeCheckout';
 
 class Footer extends Component {
     render() {
-        const previousButton = <button onClick={() => this.props.previousStep()}>Previous</button>;
+        const previousButton = <Button type="ghost" disabled={!this.props.currentStep} onClick={() => this.props.previousStep()}>Previous</Button>;
 
         let nextButton;
-        if (this.props.currentStep < this.props.steps.length) {
-            nextButton = <button onClick={() => this.props.nextStep()}>Next</button>;
+        if (this.props.currentStep < this.props.steps.length - 1) {
+            nextButton = <Button type="ghost" onClick={() => this.props.nextStep()}>Next</Button>;
         }
 
         let purchaseButton;
-        if (this.props.currentStep === this.props.steps.length) {
+        if (this.props.currentStep === this.props.steps.length - 1) {
             purchaseButton = <StripeCheckout />;
         }
 

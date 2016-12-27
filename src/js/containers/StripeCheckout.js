@@ -7,9 +7,7 @@ class TakeMoney extends React.Component {
     onToken(token) {
         fetch('/save-stripe-token', {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(token),
         }).then((t) => {
             console.log(t);

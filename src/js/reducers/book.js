@@ -1,9 +1,12 @@
+import computePrice from '../pricing';
+
 const initialState = {
     bookbinding: 'traditional',
     color: 'black',
     format: 'small',
-    pages: 80,
-    gilding: 'Type your text...',
+    pages: 72,
+    gilding: '',
+    price: 0,
 };
 
 export default function book(state = initialState, action) {
@@ -14,15 +17,21 @@ export default function book(state = initialState, action) {
     case 'CHOOSE_COLOR':
         state.color = action.payload;
         return state;
-    case 'CHOOSE_PAGES_NUMBER':
-        state.pages = action.payload;
-        return state;
-    case 'CHOOSE_GILDING':
+    case 'CHOOSE_GILDING': {
         state.gilding = action.payload;
-        return state;
-    case 'CHOOSE_FORMAT':
+        const newPrice = computePrice(state.bookbinding, state.format, state.pages, state.gilding);
+        return { ...state, price: newPrice };
+    }
+    case 'CHOOSE_PAGES_NUMBER': {
+        state.pages = action.payload;
+        const newPrice = computePrice(state.bookbinding, state.format, state.pages, state.gilding);
+        return { ...state, price: newPrice };
+    }
+    case 'CHOOSE_FORMAT': {
         state.format = action.payload;
-        return state;
+        const newPrice = computePrice(state.bookbinding, state.format, state.pages, state.gilding);
+        return { ...state, price: newPrice };
+    }
     default:
         return state;
     }

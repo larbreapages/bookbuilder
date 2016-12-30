@@ -20,8 +20,8 @@ class Format extends Component {
                 <p>Choose your format:</p>
                 <RadioGroup name="format" value={this.props.book.format} onChange={e => this.handleChange(e.target.value)}>
                     <Radio value={'small'}>Small (16x12)</Radio>
-                    <Radio value={'middle'}> Middle (20x16)</Radio>
-                    <Radio value={'big'}> Big (24x20)</Radio>
+                    <Radio value={'medium'}> Medium (20x16)</Radio>
+                    <Radio value={'large'}> Large (24x20)</Radio>
                 </RadioGroup>
                 <Pages />
                 <Gilding />

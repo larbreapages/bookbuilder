@@ -19,9 +19,10 @@ class TakeMoney extends React.Component {
             <StripeCheckout
                 name="L'Arbre à Pages"
                 panelLabel="Payment"
-                description="Relieur"
+                description="Reliure d'art"
                 image="https://larbreapages.fr/logo-c8b33fb.png"
-                amount={1000}
+                amount={this.props.price * 100}
+                currency="EUR"
                 stripeKey="pk_test_X5QHKlsqDXQVEMBVbHyzicpd"
                 locale="auto"
                 email=""
@@ -36,6 +37,7 @@ class TakeMoney extends React.Component {
 
 function mapStateToProps(state) {
     return {
+        price: state.book.price,
         acceptConditions: state.steps.acceptConditions,
     };
 }

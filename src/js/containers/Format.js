@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { Radio } from 'antd';
-import { chooseFormat } from '../actions/index';
+import { Radio, Checkbox } from 'antd';
+import { chooseFormat, acceptConditions } from '../actions/index';
 import Pages from './Pages';
 import Gilding from './Gilding';
 
@@ -25,6 +25,7 @@ class Format extends Component {
                 </RadioGroup>
                 <Pages />
                 <Gilding />
+                <Checkbox checked={this.props.accept} onChange={() => this.props.acceptConditions()}>I accept <a href="https://larbreapages.com/terms">General Terms and Conditions of Sale</a></Checkbox>
             </div>
         );
     }
@@ -33,11 +34,12 @@ class Format extends Component {
 function mapStateToProps(state) {
     return {
         book: state.book,
+        accept: state.steps.acceptConditions,
     };
 }
 
 function matchDispatchToProps(dispatch) {
-    return bindActionCreators({ chooseFormat }, dispatch);
+    return bindActionCreators({ chooseFormat, acceptConditions }, dispatch);
 }
 
 export default connect(mapStateToProps, matchDispatchToProps)(Format);

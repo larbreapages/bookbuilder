@@ -21,10 +21,15 @@ const computeGildingPrice = (gilding) => {
 
 const computeFormatPrice = (bookbinding, format) => {
     const pricing = {
-        traditional: {
-            small: 11.57,
-            medium: 18.27,
-            large: 28.83,
+        modern: {
+            small: 5.30 + 6.27,
+            medium: 10.43 + 7.84,
+            large: 17.86 + 10.97,
+        },
+        conservation: {
+            small: 8.93 + 9.41,
+            medium: 12.30 + 10.98,
+            large: 16.10 + 14.11,
         },
     };
 
@@ -33,7 +38,7 @@ const computeFormatPrice = (bookbinding, format) => {
 
 const computePagePrice = (bookbinding, format, pages) => {
     const pricing = {
-        traditional: {
+        modern: {
             small: {
                 paper: (((0.45 + 3.05 + 7.53) / 6) / 12),
                 cover: 1.02 + 2.24,
@@ -45,6 +50,20 @@ const computePagePrice = (bookbinding, format, pages) => {
             large: {
                 paper: (((1.78 + 4.18 + 11.29) / 6) / 12),
                 cover: 1.39 + 3.76,
+            },
+        },
+        conservation: {
+            small: {
+                paper: (((0.59 + 3.05 + 3.53) / 6) / 12),
+                cover: 0,
+            },
+            medium: {
+                paper: (((1.19 + 3.53 + 4.03) / 6) / 12),
+                cover: 0,
+            },
+            large: {
+                paper: (((1.78 + 4.18 + 5.64) / 6) / 12),
+                cover: 0,
             },
         },
     };

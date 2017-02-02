@@ -1,38 +1,41 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Button } from 'antd';
 import { nextStep, previousStep } from '../actions/index';
 import StripeCheckout from './StripeCheckout';
 
-class Footer extends Component {
-    render() {
-        const previousButton = <Button type="ghost" disabled={!this.props.currentStep} onClick={() => this.props.previousStep()}>Previous</Button>;
+const round = (value, decimals) => {
+    return Number(`${Math.round(`${value}e${decimals}`)}e-${decimals}`);
+};
 
-        let nextButton;
-        if (this.props.currentStep < this.props.steps.length - 1) {
-            nextButton = <Button type="ghost" onClick={() => this.props.nextStep()}>Next</Button>;
-        }
+const Footer = (props) => {
+    const previousButton = <Button type="ghost" disabled={!props.currentStep} onClick={() => props.previousStep()}>Previous</Button>;
 
-        let purchaseButton;
-        if (this.props.currentStep === this.props.steps.length - 1) {
-            purchaseButton = <StripeCheckout />;
-        }
-
-        return (
-            <div className="footer">
-                { previousButton }
-                <div className="price">Total: 100$</div>
-                { nextButton }
-                { purchaseButton }
-            </div>
-        );
+    let nextButton;
+    if (props.currentStep < props.stepsLength - 1) {
+        nextButton = <Button type="ghost" onClick={() => props.nextStep()}>Next</Button>;
     }
-}
+
+    let purchaseButton;
+    if (props.currentStep === props.stepsLength - 1) {
+        purchaseButton = <StripeCheckout />;
+    }
+
+    return (
+        <div className="footer">
+            { previousButton }
+            <div className="price">Total: {round(props.price, 2)}€</div>
+            { nextButton }
+            { purchaseButton }
+        </div>
+    );
+};
 
 function mapStateToProps(state) {
     return {
-        steps: state.steps.steps,
+        price: state.book.price,
+        stepsLength: state.steps.steps.length,
         currentStep: state.steps.currentStep,
     };
 }

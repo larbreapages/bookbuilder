@@ -1,3 +1,5 @@
+// @TODO: Refactoring prices with constants
+
 const computeGildingPrice = (gilding) => {
     const gildingCharacters = gilding.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, '').replace(/\s/g, '').length;
 

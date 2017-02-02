@@ -11,9 +11,6 @@ const initialState = {
         {
             title: 'Format',
         },
-        {
-            title: 'Summary',
-        },
     ],
 };
 

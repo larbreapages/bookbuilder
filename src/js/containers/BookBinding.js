@@ -3,8 +3,8 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { RadioGroup, Radio } from 'react-radio-group';
 import { chooseBookBinding } from '../actions/index';
-import ModernImg from '../../images/modern.jpg';
-import TraditionalImg from '../../images/traditional.jpg';
+import ModernImg from '../../images/modern.png';
+import ConservationImg from '../../images/conservation.png';
 
 class BookBinding extends Component {
     handleChange(value) {
@@ -18,15 +18,15 @@ class BookBinding extends Component {
                 <p>Choose your bookbinding:</p>
                 <RadioGroup className="choices" name="bookbinding" selectedValue={this.props.book.bookbinding} onChange={e => this.handleChange(e)}>
                     <div>
-                        <img src={TraditionalImg} width="335" alt="traditional" />
+                        <img src={ModernImg} width="270" alt="modern" />
                         <div className="center">
-                            <Radio value="traditional" />Traditional Bookbinding
+                            <Radio value="modern" />Modern Bookbinding
                         </div>
                     </div>
                     <div>
-                        <img src={ModernImg} width="300" alt="modern" />
+                        <img src={ConservationImg} width="320" alt="conservation" />
                         <div className="center">
-                            <Radio value="modern" />Modern Bookbinding
+                            <Radio value="conservation" />Conservation Bookbinding
                         </div>
                     </div>
                 </RadioGroup>

@@ -18,7 +18,6 @@ class StepsClass extends Component {
             { this.props.currentStep === 0 ? <BookBinding /> : null }
             { this.props.currentStep === 1 ? <Color /> : null }
             { this.props.currentStep === 2 ? <Format /> : null }
-            { this.props.currentStep === 3 ? <Summary /> : null }
         </div>);
     }
 }

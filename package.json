@@ -1,8 +1,8 @@
 {
   "license": "MIT",
   "devDependencies": {
-    "babel-cli": "^6.18.0",
     "antd": "^2.5.0",
+    "babel-cli": "^6.18.0",
     "babel-core": "^6.7.4",
     "babel-eslint": "^6.0.0",
     "babel-loader": "^6.2.4",
@@ -12,6 +12,7 @@
     "babel-preset-stage-0": "^6.5.0",
     "body-parser": "^1.15.2",
     "compression": "^1.6.2",
+    "config": "git+https://github.com/jcherqui/node-config",
     "css-loader": "^0.23.1",
     "cssnext-loader": "^1.0.1",
     "eslint": "^3.3.0",
@@ -41,8 +42,7 @@
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
     "webpack": "^1.12.0",
-    "webpack-dev-server": "^1.10.1",
-    "config": "git+https://github.com/jcherqui/node-config"
+    "webpack-dev-server": "^1.10.1"
   },
   "keywords": [
     "react",

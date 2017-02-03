@@ -5,6 +5,7 @@ import { createStore } from 'redux';
 import { Router, browserHistory } from 'react-router';
 import reducers from './reducers';
 import { loadState, saveState } from './localStorage';
+import { computeTVA } from './pricing';
 import Routes from './routes';
 
 const persistedState = loadState();
@@ -16,6 +17,7 @@ const store = createStore(
 
 store.subscribe(() => {
     saveState({ book: store.getState().book });
+    store.getState().book.tva = computeTVA(store.getState().book.price);
     console.log('store changed', store.getState());
 });
 

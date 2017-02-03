@@ -5,10 +5,6 @@ import { Button } from 'antd';
 import { nextStep, previousStep } from '../actions/index';
 import StripeCheckout from './StripeCheckout';
 
-const round = (value, decimals) => {
-    return Number(`${Math.round(`${value}e${decimals}`)}e-${decimals}`);
-};
-
 const Footer = (props) => {
     const previousButton = <Button type="ghost" disabled={!props.currentStep} onClick={() => props.previousStep()}>Previous</Button>;
 
@@ -25,7 +21,7 @@ const Footer = (props) => {
     return (
         <div className="footer">
             { previousButton }
-            <div className="price">Total: {round(props.price, 2)}€</div>
+            <div className="price">Total: {props.price}€ H.T.</div>
             { nextButton }
             { purchaseButton }
         </div>

@@ -4,11 +4,11 @@ import { connect } from 'react-redux';
 import { Button } from 'antd';
 
 class TakeMoney extends React.Component {
-    onToken(token) {
+    onToken(token, book) {
         fetch('/save-stripe-token', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(token),
+            body: JSON.stringify({ token, book }),
         }).then((t) => {
             console.log(t);
         });
@@ -18,26 +18,23 @@ class TakeMoney extends React.Component {
         return (
             <StripeCheckout
                 name="L'Arbre à Pages"
-                panelLabel="Payment"
                 description="Reliure d'art"
                 image="https://larbreapages.fr/logo-c8b33fb.png"
-                amount={this.props.price * 100}
+                amount={this.props.book.price * 100}
                 currency="EUR"
-                stripeKey="pk_test_X5QHKlsqDXQVEMBVbHyzicpd"
-                locale="auto"
-                email=""
-                token={this.onToken}
+                stripeKey={CONFIG.publishableKey}
+                locale="fr"
+                token={token => this.onToken(token, this.props.book)}
+                billingAddress
                 shippingAddress
-                bitcoin
-            >
-            <Button type="primary" disabled={!this.props.acceptConditions}>Purchase</Button></StripeCheckout>
+            ><Button type="primary" disabled={!this.props.acceptConditions}>Purchase</Button></StripeCheckout>
         );
     }
 }
 
 function mapStateToProps(state) {
     return {
-        price: state.book.price,
+        book: state.book,
         acceptConditions: state.steps.acceptConditions,
     };
 }

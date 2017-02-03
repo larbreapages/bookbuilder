@@ -1,5 +1,7 @@
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
+import webpack from 'webpack';
+import config from 'config';
 
 module.exports = {
     entry: {
@@ -38,6 +40,9 @@ module.exports = {
         }),
         new ExtractTextPlugin('[name].css', {
             allChunks: false,
+        }),
+        new webpack.DefinePlugin({
+            CONFIG: JSON.stringify(config),
         }),
     ],
 };

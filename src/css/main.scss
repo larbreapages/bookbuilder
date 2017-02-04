@@ -1,6 +1,6 @@
 @import "~normalize.css/normalize.css";
 
-div[data-reactroot] {
+#root > div[data-reactroot] {
     display: flex;
     flex-direction: column;
     border: 1px solid black;
@@ -15,7 +15,7 @@ div[data-reactroot] {
     margin-bottom: 10px;
 }
 
-.steps {
+.content {
     flex: 1;
 }
 
@@ -31,10 +31,30 @@ div[data-reactroot] {
     img {
         border: 1px solid black;
     }
+
+    img:hover {
+        cursor: pointer;
+        opacity: 0.6;
+    }
 }
 
 .footer {
     display: flex;
     justify-content: space-between;
+}
+
+.finish {
+    margin-top: 20px;
+    text-align:center;
+
+    .anticon-check-circle-o {
+        font-size: 100px;
+    }
+
+    p {
+        font-size: 20px;
+        margin-top: 4px;
+        margin-bottom: 0px;
+    }
 }
 

@@ -1,4 +1,4 @@
-import computePrice from '../pricing';
+import computePrice, { computeTVA } from '../pricing';
 
 const initialState = {
     bookbinding: 'modern',
@@ -11,6 +11,7 @@ const initialState = {
 };
 
 initialState.price = computePrice(initialState);
+initialState.tva = computeTVA(initialState.price);
 
 export default function book(state = initialState, action) {
     switch (action.type) {

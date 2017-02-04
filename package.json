@@ -27,6 +27,7 @@
     "less": "^2.7.1",
     "less-loader": "^2.2.3",
     "node-sass": "^3.4.2",
+    "nodemailer": "^2.7.2",
     "normalize.css": "^4.1.1",
     "raw-loader": "^0.5.1",
     "react": "^15.4.1",

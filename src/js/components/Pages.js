@@ -17,8 +17,8 @@ function mapStateToProps(state) {
     };
 }
 
-function matchDispatchToProps(dispatch) {
+function mapDispatchToProps(dispatch) {
     return bindActionCreators({ choosePagesNumber }, dispatch);
 }
 
-export default connect(mapStateToProps, matchDispatchToProps)(Pages);
+export default connect(mapStateToProps, mapDispatchToProps)(Pages);

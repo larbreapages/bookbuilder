@@ -1,12 +1,40 @@
-import React from 'react';
-import Steps from '../containers/Steps';
-import Footer from '../containers/Footer';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Steps } from 'antd';
+import BookBinding from './BookBinding';
+import Color from './Color';
+import Format from './Format';
+import Footer from './Footer';
+import Finish from './Finish';
 
-const App = () => {
-    return (<div>
-        <Steps />
-        <Footer />
-    </div>);
-};
+const Step = Steps.Step;
 
-export default App;
+class App extends Component {
+    steps() {
+        return (<Steps size="small" current={this.props.currentStep}>
+            {this.props.steps.map(item => <Step key={item.title} title={item.title} />)}
+        </Steps>);
+    }
+
+    render() {
+        return (<div>
+            <div className="steps">{ this.steps() }</div>
+            <div className="content">
+                { this.props.currentStep === 0 ? <BookBinding /> : null }
+                { this.props.currentStep === 1 ? <Color /> : null }
+                { this.props.currentStep === 2 ? <Format /> : null }
+                { this.props.currentStep === 3 ? <Finish /> : null }
+            </div>
+            { this.props.currentStep !== this.props.steps.length ? <Footer /> : null }
+        </div>);
+    }
+}
+
+function mapStateToProps(state) {
+    return {
+        steps: state.steps.steps,
+        currentStep: state.steps.currentStep,
+    };
+}
+
+export default connect(mapStateToProps)(App);

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { Tooltip } from 'antd';
 import { chooseColor } from '../actions/index';
 import Paper1 from '../../images/paper_1.png';
 import Paper2 from '../../images/paper_2.png';
@@ -18,7 +19,7 @@ import Wire4 from '../../images/wire_4.png';
 class Color extends Component {
     modernPaperRender() {
         return (<div>
-            <p>Choose your paper:</p>
+            <p>Choose your paper: <Tooltip title="Ces papiers ont été marbrés à la cuve par les artistes Zeynep Uysal Kog et Katalin Perry."><a href="#">[Plus d'infos]</a></Tooltip></p>
             <div className="choices">
                 <img src={Paper1} width="100" height="100" alt="blue" onClick={() => this.props.chooseColor('blue')} />
                 <img src={Paper2} width="100" height="100" alt="black" onClick={() => this.props.chooseColor('black')} />
@@ -68,8 +69,8 @@ function mapStateToProps(state) {
     };
 }
 
-function matchDispatchToProps(dispatch) {
+function mapDispatchToProps(dispatch) {
     return bindActionCreators({ chooseColor }, dispatch);
 }
 
-export default connect(mapStateToProps, matchDispatchToProps)(Color);
+export default connect(mapStateToProps, mapDispatchToProps)(Color);

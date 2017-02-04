@@ -24,9 +24,7 @@ class Format extends Component {
             </RadioGroup>
             <Pages />
             <Gilding />
-            <p>Shipping costs: {this.props.book.shippingCosts}€</p>
-            <p>T.V.A: {this.props.book.tva}€</p>
-            <Checkbox checked={this.props.accept} onChange={() => this.props.acceptConditions()}>I accept <a href="https://larbreapages.com/terms">General Terms and Conditions of Sale</a></Checkbox>
+            <Checkbox checked={this.props.accept} onChange={() => this.props.acceptConditions()}>I accept <a href="https://larbreapages.com/terms" target="_blank" rel="noopener noreferrer">General Terms and Conditions of Sale</a></Checkbox>
         </div>);
     }
 }
@@ -38,8 +36,8 @@ function mapStateToProps(state) {
     };
 }
 
-function matchDispatchToProps(dispatch) {
+function mapDispatchToProps(dispatch) {
     return bindActionCreators({ chooseFormat, acceptConditions }, dispatch);
 }
 
-export default connect(mapStateToProps, matchDispatchToProps)(Format);
+export default connect(mapStateToProps, mapDispatchToProps)(Format);

@@ -29,8 +29,8 @@ function mapStateToProps(state) {
     };
 }
 
-function matchDispatchToProps(dispatch) {
+function mapDispatchToProps(dispatch) {
     return bindActionCreators({ acceptConditions }, dispatch);
 }
 
-export default connect(mapStateToProps, matchDispatchToProps)(Summary);
+export default connect(mapStateToProps, mapDispatchToProps)(Summary);

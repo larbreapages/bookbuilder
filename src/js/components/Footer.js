@@ -1,7 +1,7 @@
 import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { Button } from 'antd';
+import { Button, Tag, Tooltip } from 'antd';
 import { nextStep, previousStep } from '../actions/index';
 import StripeCheckout from './StripeCheckout';
 
@@ -18,26 +18,29 @@ const Footer = (props) => {
         purchaseButton = <StripeCheckout />;
     }
 
-    return (
-        <div className="footer">
-            { previousButton }
-            <div className="price">Total: {props.price}€ H.T.</div>
-            { nextButton }
-            { purchaseButton }
-        </div>
-    );
+    const priceTTCText = `${props.book.price + props.book.tva} € T.T.C.`;
+    return (<div className="footer">
+        { previousButton }
+        <Tag className="price">
+            <Tooltip placement="top" title={priceTTCText}>
+                <b>Prix: {props.book.price} € H.T.</b>
+            </Tooltip>
+        </Tag>
+        { nextButton }
+        { purchaseButton }
+    </div>);
 };
 
 function mapStateToProps(state) {
     return {
-        price: state.book.price,
+        book: state.book,
         stepsLength: state.steps.steps.length,
         currentStep: state.steps.currentStep,
     };
 }
 
-function matchDispatchToProps(dispatch) {
+function mapDispatchToProps(dispatch) {
     return bindActionCreators({ nextStep, previousStep }, dispatch);
 }
 
-export default connect(mapStateToProps, matchDispatchToProps)(Footer);
+export default connect(mapStateToProps, mapDispatchToProps)(Footer);

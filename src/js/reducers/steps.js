@@ -3,13 +3,16 @@ const initialState = {
     acceptConditions: false,
     steps: [
         {
-            title: 'Bookbinding',
+            title: 'RELIURE',
         },
         {
-            title: 'Colors',
+            title: 'COULEURS',
         },
         {
-            title: 'Format',
+            title: 'FORMAT',
+        },
+        {
+            title: 'PAIEMENT',
         },
     ],
 };

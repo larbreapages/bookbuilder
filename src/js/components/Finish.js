@@ -8,9 +8,9 @@ import { reset } from '../actions/index';
 const Finish = (props) => {
     return (<div className="finish">
         <Icon type="check-circle-o" />
-        <p>Congratulations!</p>
-        <p>Your order has been accepted!</p>
-        <Button onClick={() => props.reset()}>Close</Button>
+        <p>Félicitation !</p>
+        <p>Votre commande vient d'être accepté !</p>
+        <Button onClick={() => props.reset()}>Fermer</Button>
     </div>);
 };
 

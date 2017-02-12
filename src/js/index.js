@@ -3,30 +3,31 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import { Router, browserHistory } from 'react-router';
-import reducers from './reducers';
 import { loadState, saveState, removeState } from './localStorage';
 import { computeTVA } from './pricing';
+import reducers from './reducers';
 import Routes from './routes';
 
 const persistedState = loadState();
 const store = createStore(
     reducers,
     persistedState,
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
+const round = (value, decimals) => Number(`${Math.round(`${value}e${decimals}`)}e-${decimals}`);
 store.subscribe(() => {
-    saveState({ book: store.getState().book });
+    saveState({ book: store.getState().book, steps: store.getState().steps });
     store.getState().book.tva = computeTVA(store.getState().book.price);
+    store.getState().book.priceTTC = store.getState().book.tva + store.getState().book.price;
+    store.getState().book.total = round(store.getState().book.priceTTC + store.getState().book.shippingCosts, 2);
     if (store.getState().steps.reset) {
         removeState();
     }
-    console.log('store changed', store.getState());
 });
 
 ReactDOM.render(
     <Provider store={store}>
         <Router routes={Routes} history={browserHistory} />
     </Provider>,
-    document.getElementById('root')
+    document.getElementById('bookbuilder')
 );

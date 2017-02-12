@@ -1,3 +1,5 @@
+// @TODO: https://github.com/postcss/autoprefixer
+
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import webpack from 'webpack';
@@ -14,6 +16,7 @@ module.exports = {
     output: {
         path: `${__dirname}/public`,
         filename: 'bundle.js',
+        publicPath: 'http://localhost:3000/',
     },
     module: {
         loaders: [

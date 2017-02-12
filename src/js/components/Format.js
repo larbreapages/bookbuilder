@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { Radio, Checkbox } from 'antd';
+import { Radio, Checkbox, Row } from 'antd';
 import { chooseFormat, acceptConditions } from '../actions/index';
 import Pages from './Pages';
 import Gilding from './Gilding';
@@ -16,15 +16,16 @@ class Format extends Component {
 
     render() {
         return (<div>
-            <p>Choose your format:</p>
-            <RadioGroup name="format" value={this.props.book.format} onChange={e => this.handleChange(e.target.value)}>
-                <Radio value={'small'}>Small (16x12)</Radio>
-                <Radio value={'medium'}> Medium (20x16)</Radio>
-                <Radio value={'large'}> Large (24x20)</Radio>
-            </RadioGroup>
+            <Row>
+                <p className="title">Choisir ton format :</p>
+                <RadioGroup name="format" value={this.props.book.format} onChange={e => this.handleChange(e.target.value)}>
+                    <Radio value={'small'}>Petit (16 x 12 cm)</Radio>
+                    <Radio value={'medium'}>Moyen (20 x 16 cm)</Radio>
+                    <Radio value={'large'}>Grand (24 x 20 cm)</Radio>
+                </RadioGroup>
+            </Row>
             <Pages />
             <Gilding />
-            <Checkbox checked={this.props.accept} onChange={() => this.props.acceptConditions()}>I accept <a href="https://larbreapages.com/terms" target="_blank" rel="noopener noreferrer">General Terms and Conditions of Sale</a></Checkbox>
         </div>);
     }
 }

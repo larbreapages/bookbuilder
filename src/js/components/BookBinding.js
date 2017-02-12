@@ -1,42 +1,44 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { RadioGroup, Radio } from 'react-radio-group';
-import { Tooltip } from 'antd';
 import { chooseBookBinding } from '../actions/index';
 import ModernImg from '../../images/modern.png';
 import ConservationImg from '../../images/conservation.png';
 
 class BookBinding extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            bookbinding: props.book.bookbinding,
+        };
+    }
+
     handleChange(value) {
         this.props.chooseBookBinding(value);
-        this.setState({ selectedValue: value });
+        this.setState({ bookbinding: value });
     }
 
     render() {
-        return (
-            <div>
-                <p>Choose your bookbinding:</p>
-                <RadioGroup className="choices" name="bookbinding" selectedValue={this.props.book.bookbinding} onChange={e => this.handleChange(e)}>
-                    <div>
-                        <Tooltip placement="left" title="Reliure à couture apparente possédant une excellente ouverture. Idéal pour écrire ou pour dessiner (papier blanc 120g).">
-                            <img src={ModernImg} width="270" alt="modern" />
-                        </Tooltip>
-                        <div className="center">
-                            <Radio value="modern" />Modern Bookbinding
-                        </div>
+        return (<div>
+            <p className="title">Choisis un type de reliure :</p>
+            <div className="choices bookbinding">
+                <div className={this.state.bookbinding === 'modern' ? 'choice active' : 'choice'} onClick={() => this.handleChange('modern')}>
+                    <div
+                        className="hint--top hint--large"
+                        aria-label="Reliure copte possédant une excellente ouverture. Idéal pour écrire ou pour dessiner (papier blanc 120g)."
+                    >
+                        <img src={ModernImg} alt="modern" />
+                        <span className="center">Reliure moderne</span>
                     </div>
-                    <div>
-                        <Tooltip placement="right" title="Reliure souple en papier avec couture semi-apparente, un livre unique pour rédiger toutes vos notes.">
-                            <img src={ConservationImg} width="320" alt="conservation" />
-                        </Tooltip>
-                        <div className="center">
-                            <Radio value="conservation" />Conservation Bookbinding
-                        </div>
+                </div>
+                <div className={this.state.bookbinding === 'conservation' ? 'choice active' : 'choice'} onClick={() => this.handleChange('conservation')}>
+                    <div className="hint--top hint--large" aria-label="Reliure souple en papier avec couture semi-apparente. Le carnet parfait pour rédiger toutes vos notes (papier blanc 120g).">
+                        <img src={ConservationImg} alt="conservation" />
+                        <span className="center">Reliure de conservation</span>
                     </div>
-                </RadioGroup>
+                </div>
             </div>
-        );
+        </div>);
     }
 }
 

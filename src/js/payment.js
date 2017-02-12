@@ -12,9 +12,13 @@ const createDescription = (book) => {
 };
 
 payment.all('/save-stripe-token', (req, res) => {
+    const book = req.body.book;
+    if (!book) {
+        return res.status(500).send({ error: 'Something failed!' });
+    }
+
     const stripe = s(secretKey);
     const token = req.body.token;
-    const book = req.body.book;
     const price = computePrice(book);
     const description = createDescription(book);
 

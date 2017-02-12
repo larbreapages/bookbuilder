@@ -5,6 +5,7 @@ import BookBinding from './BookBinding';
 import Color from './Color';
 import Format from './Format';
 import Footer from './Footer';
+import Summary from './Summary';
 import Finish from './Finish';
 
 const Step = Steps.Step;
@@ -23,7 +24,8 @@ class App extends Component {
                 { this.props.currentStep === 0 ? <BookBinding /> : null }
                 { this.props.currentStep === 1 ? <Color /> : null }
                 { this.props.currentStep === 2 ? <Format /> : null }
-                { this.props.currentStep === 3 ? <Finish /> : null }
+                { this.props.currentStep === 3 ? <Summary /> : null }
+                { this.props.currentStep === 4 ? <Finish /> : null }
             </div>
             { this.props.currentStep !== this.props.steps.length ? <Footer /> : null }
         </div>);

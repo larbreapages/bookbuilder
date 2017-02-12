@@ -1,31 +1,31 @@
 import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { Button, Tag, Tooltip } from 'antd';
+import { Button, Tag } from 'antd';
 import { nextStep, previousStep } from '../actions/index';
-import StripeCheckout from './StripeCheckout';
+import PurchaseButton from './PurchaseButton';
 
 const Footer = (props) => {
-    const previousButton = <Button type="ghost" disabled={!props.currentStep} onClick={() => props.previousStep()}>Previous</Button>;
+    const previousButton = <Button type="ghost" disabled={!props.currentStep} onClick={() => props.previousStep()}>Précédent</Button>;
 
     let nextButton;
     if (props.currentStep < props.stepsLength - 1) {
-        nextButton = <Button type="ghost" onClick={() => props.nextStep()}>Next</Button>;
+        nextButton = <Button type="ghost" onClick={() => props.nextStep()}>Suivant</Button>;
     }
 
     let purchaseButton;
     if (props.currentStep === props.stepsLength - 1) {
-        purchaseButton = <StripeCheckout />;
+        purchaseButton = <PurchaseButton />;
     }
 
-    const priceTTCText = `${props.book.price + props.book.tva} € T.T.C.`;
+    const priceTTCText = `${props.book.priceTTC} € T.T.C.`;
     return (<div className="footer">
         { previousButton }
-        <Tag className="price">
-            <Tooltip placement="top" title={priceTTCText}>
-                <b>Prix: {props.book.price} € H.T.</b>
-            </Tooltip>
-        </Tag>
+        <span className="hint--top" aria-label={priceTTCText}>
+            <Tag className="price">
+                <b>{props.book.price} € H.T.</b>
+            </Tag>
+        </span>
         { nextButton }
         { purchaseButton }
     </div>);

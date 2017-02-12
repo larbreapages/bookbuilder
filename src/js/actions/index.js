@@ -1,5 +1,6 @@
 export const chooseBookBinding = bookBinding => ({ type: 'CHOOSE_BOOKBINDING', payload: bookBinding });
-export const chooseColor = color => ({ type: 'CHOOSE_COLOR', payload: color });
+export const choosePaper = paper => ({ type: 'CHOOSE_PAPER', payload: paper });
+export const chooseWire = wire => ({ type: 'CHOOSE_WIRE', payload: wire });
 export const choosePagesNumber = pages => ({ type: 'CHOOSE_PAGES_NUMBER', payload: pages });
 export const chooseGilding = gilding => ({ type: 'CHOOSE_GILDING', payload: gilding });
 export const chooseFormat = format => ({ type: 'CHOOSE_FORMAT', payload: format });

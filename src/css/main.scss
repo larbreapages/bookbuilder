@@ -1,60 +1,191 @@
-@import "~normalize.css/normalize.css";
+#bookbuilder {
+    @import "~normalize.css/normalize.css";
+    @import "~hint.css/hint.min.css";
 
-#root > div[data-reactroot] {
-    display: flex;
-    flex-direction: column;
-    border: 1px solid black;
-    width: 700px;
-    min-height: 380px;
-    margin: auto;
-    margin-top: 25px;
-    padding: 10px;
-}
+    &> div[data-reactroot] {
+        display: flex;
+        flex-direction: column;
+        min-height: 380px;
+        margin: auto;
+        padding: 10px;
+    }
 
-.ant-steps {
-    margin-bottom: 10px;
-}
+    .steps {
+        margin-bottom: 10px;
+    }
 
-.content {
-    flex: 1;
-}
+    .ant-steps .ant-steps-item.ant-steps-status-process .ant-steps-title {
+        color: darkgoldenrod!important;
+    }
 
-.center {
-    text-align: center;
-}
+    .ant-steps {
+        margin-bottom: 10px;
+    }
 
-.choices {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+    .content {
+        flex: 1;
+    }
+
+    .center {
+        text-align: center;
+    }
+
+    .ant-row {
+        margin-bottom: 20px;
+    }
+
+    .footer {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .finish {
+        margin-top: 20px;
+        text-align:center;
+
+        .anticon-check-circle-o {
+            font-size: 100px;
+        }
+
+        p {
+            font-size: 20px;
+            margin-top: 4px;
+            margin-bottom: 0px;
+        }
+    }
+
+    .choices {
+        display: flex;
+        //overflow: hidden;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+
+        .choice {
+            float: left;
+            cursor: pointer;
+            border: 1px solid #ddd;
+            //overflow: hidden;
+            font-size: 0;
+            margin-right: 10px;
+        }
+
+        img {
+            user-drag: none; 
+            user-select: none;
+            -moz-user-select: none;
+            -webkit-user-drag: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+        }
+
+        .choice {
+            position: relative;
+            text-align: center;
+
+            &.active {
+                border: 1px solid darkgoldenrod;
+            }
+
+            &.active img {
+                opacity: 0.2;
+            }
+
+            &.active span {
+                display: block;
+                position: absolute;
+                top: 45%;
+                width: 100%;
+                color: darkgoldenrod;
+                font-weight: bold;
+                font-size: 14px;
+            }
+        }
+
+        &.bookbinding img {
+            max-height: 238px;
+        }
+
+        &.paper, &.wire {
+            img {
+                -webkit-transition: 0.4s ease;
+                transition: 0.4s ease;
+                width: 150px;
+            }
+
+            .choice {
+                float: left;
+                position: relative;
+                width: 150px;
+                overflow: hidden;
+            }
+
+            .choice:hover img {
+                -webkit-transform: scale(1.80);
+                transform: scale(1.80);
+            }
+        }
+    }
+
+    .zoom {
+        max-width: 200px;
+        overflow: hidden;
+        border: 1px solid #ddd;
+        font-size: 0;
+    }
+
+    .zoom:hover img {
+        -webkit-transform: scale(1.80);
+        transform: scale(1.80);
+        max-width: 200px;
+    }
 
     img {
-        border: 1px solid black;
+        -webkit-transition: 0.4s ease;
+        transition: 0.4s ease;
     }
 
-    img:hover {
-        cursor: pointer;
-        opacity: 0.6;
-    }
-}
-
-.footer {
-    display: flex;
-    justify-content: space-between;
-}
-
-.finish {
-    margin-top: 20px;
-    text-align:center;
-
-    .anticon-check-circle-o {
-        font-size: 100px;
+    button.ant-btn-primary:not([disabled]) span {
+        color: #fff;
     }
 
-    p {
-        font-size: 20px;
-        margin-top: 4px;
-        margin-bottom: 0px;
+    p, .ant-checkbox-wrapper {
+        margin-bottom: 10px !important;
+    }
+
+    [class*=hint--] {
+        text-align: justify;
+    }
+
+    label {
+        font-weight: normal;
+    }
+
+	hr {
+		margin-top: 10px !important;
+		margin-bottom: 10px !important;
+        border: 0;
+        border-top: 1px solid #eee;
+	}
+
+    ul {
+        margin-bottom: 10px !important;
+    }
+
+    .total {
+        color: darkgoldenrod;
+        font-weight: bold;
+    }
+
+    table {
+        margin-bottom: 10px;
+    }
+
+    tr td:nth-child(1) {
+        font-weight: bold;
+    }
+
+    tr td:nth-child(2) {
+        padding-left: 20px;
     }
 }
 

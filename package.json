@@ -49,5 +49,8 @@
     "react",
     "webpack",
     "es6"
-  ]
+  ],
+  "dependencies": {
+    "hint.css": "^2.4.1"
+  }
 }

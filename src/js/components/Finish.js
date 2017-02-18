@@ -10,6 +10,7 @@ const Finish = (props) => {
         <Icon type="check-circle-o" />
         <p>Félicitation !</p>
         <p>Votre commande vient d'être accepté !</p>
+        <p>Un mail vous a été envoyé.</p>
         <Button onClick={() => props.reset()}>Fermer</Button>
     </div>);
 };

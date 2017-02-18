@@ -54,9 +54,10 @@ const Summary = (props) => {
             <tbody>
                 <tr><td>Reliure :</td><td>{bookText.bookbinding}</td></tr>
                 <tr><td>Papier :</td><td>{bookText.paper}</td></tr>
+                { props.book.bookbinding === 'modern' && <tr><td>Couleur du fil :</td><td>{bookText.wire}</td></tr> }
                 <tr><td>Format :</td><td>{bookText.format}</td></tr>
-                <tr><td>Nombre de pages :</td><td>{props.book.pages}</td></tr>
-                <tr><td>Dorure :</td><td>{bookText.gilding}</td></tr>
+                <tr><td>Nombre de pages :</td><td>{props.book.pages} (papier 120g)</td></tr>
+                <tr><td>Dorure or :</td><td>{bookText.gilding}</td></tr>
                 <tr><td style={{ paddingTop: '20px' }}>Total HT :</td><td style={{ paddingTop: '20px' }}>{props.book.price} €</td></tr>
                 <tr><td>TVA :</td><td>{props.book.tva} €</td></tr>
                 <tr><td>Frais d'envoi :</td><td>{props.book.shippingCosts} €</td></tr>

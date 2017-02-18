@@ -21,7 +21,7 @@ const PurchaseButton = (props) => {
             name="L'Arbre à Pages"
             description="Reliure d'art"
             image="https://larbreapages.fr/logo-c8b33fb.png"
-            amount={props.book.price * 100}
+            amount={props.book.total * 100}
             currency="EUR"
             stripeKey={CONFIG.publishableKey}
             locale="fr"

@@ -21,3 +21,6 @@ watch: ## Watch
 build: ## Build with webpack
 	@ mkdir -p public && cp favicon.ico public/
 	@ ./node_modules/.bin/webpack -p --progress --colors
+
+lint:
+	@ ./node_modules/.bin/eslint --fix src/

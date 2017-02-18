@@ -64,6 +64,7 @@
             float: left;
             cursor: pointer;
             border: 1px solid #ddd;
+            border-radius: 5px;
             //overflow: hidden;
             font-size: 0;
             margin-right: 10px;
@@ -102,7 +103,7 @@
         }
 
         &.bookbinding img {
-            max-height: 238px;
+            max-height: 237px;
         }
 
         &.paper, &.wire {

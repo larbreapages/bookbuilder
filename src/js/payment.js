@@ -8,7 +8,7 @@ const secretKey = config.secretKey;
 const payment = express();
 
 const createDescription = (book) => {
-    return `Livre ${book.bookbinding} ${book.color}`;
+    return `Livre ${book.bookbinding}`;
 };
 
 payment.all('/save-stripe-token', (req, res) => {

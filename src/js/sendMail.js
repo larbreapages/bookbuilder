@@ -15,7 +15,7 @@ const mailOptions = {
     from: '"L\'Arbre à Pages" <contact@larbreapages.fr>',
     to: 'contact@labreapages.fr',
     subject: 'Confirmation de commande | L\'arbre à Pages',
-    html: '<b>Hello world ?</b>',
+    html: 'Merci d\'avoir choisi L\'Arbre À Pages pour votre achat ! Votre commande a été transmise et sera bientôt traitée. Une facture vous sera envoyée prochainement.',
 };
 
 const sendMail = ({ mail, subject, body }) => transporter.sendMail({ ...mailOptions, to: mail, subject, html: body });

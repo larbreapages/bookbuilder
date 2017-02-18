@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { chooseBookBinding } from '../actions/index';
+import { chooseBookBinding, choosePaper } from '../actions/index';
 import ModernImg from '../../images/modern.png';
 import ConservationImg from '../../images/conservation.png';
 
@@ -16,6 +16,13 @@ class BookBinding extends Component {
     handleChange(value) {
         this.props.chooseBookBinding(value);
         this.setState({ bookbinding: value });
+        if (value === 'modern') {
+            this.props.choosePaper(1);
+        }
+
+        if (value === 'conservation') {
+            this.props.choosePaper(5);
+        }
     }
 
     render() {
@@ -49,7 +56,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ chooseBookBinding }, dispatch);
+    return bindActionCreators({ chooseBookBinding, choosePaper }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(BookBinding);

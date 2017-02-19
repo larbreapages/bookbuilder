@@ -16,12 +16,12 @@ module.exports = {
         filename: 'bookbuilder.js',
     },
     module: {
-        loaders: [
+        rules: [
             { test: /\.html$/, use: 'html-loader' },
             { test: /\.json$/, use: 'json-loader' },
             { test: /\.jsx?$/, use: 'babel-loader', exclude: /node_modules/ },
-            { test: /\.less$/, use: ExtractTextPlugin.extract({ fallback: 'style-loader', loader: 'css-loader!less-loader' }) },
-            { test: /\.s?css$/, use: ExtractTextPlugin.extract({ fallback: 'style-loader', loader: 'css-loader!sass-loader' }) },
+            { test: /\.less$/, use: ['style-loader', 'css-loader', 'less-loader'] },
+            { test: /\.s?css$/, use: ['style-loader', 'css-loader', 'sass-loader'] },
             {
                 test: /\.(png|jpg|gif|svg|woff2?|eot|ttf)(\?.*)?$/,
                 loader: 'url-loader',
@@ -38,14 +38,11 @@ module.exports = {
             template: `${__dirname}/src/index.html`,
             hash: true,
         }),
-        new ExtractTextPlugin({
-            filename: '[name].css',
-            allChunks: false,
-        }),
         new webpack.DefinePlugin({
             CONFIG: JSON.stringify(config),
             'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
         }),
+        new ExtractTextPlugin({ filename: '[name].css', allChunks: false }),
         new webpack.optimize.UglifyJsPlugin(),
     ],
 };

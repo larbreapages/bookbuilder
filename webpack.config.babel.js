@@ -20,8 +20,8 @@ module.exports = {
             { test: /\.html$/, use: 'html-loader' },
             { test: /\.json$/, use: 'json-loader' },
             { test: /\.jsx?$/, use: 'babel-loader', exclude: /node_modules/ },
-            { test: /\.less$/, use: ['style-loader', 'css-loader', 'less-loader'] },
-            { test: /\.s?css$/, use: ['style-loader', 'css-loader', 'sass-loader'] },
+            { test: /\.less$/, use: ExtractTextPlugin.extract({ fallback: 'style-loader', use: ['css-loader', 'less-loader'] }) },
+            { test: /\.s?css$/, use: ExtractTextPlugin.extract({ fallback: 'style-loader', use: ['css-loader', 'sass-loader'] }) },
             {
                 test: /\.(png|jpg|gif|svg|woff2?|eot|ttf)(\?.*)?$/,
                 loader: 'url-loader',

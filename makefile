@@ -3,7 +3,7 @@
 PORT := 8080
 
 install: ## Install application
-	@ npm i
+	@ yarn --ignore-engines
 
 run: ## Run application
 	@ NODE_ENV=production PORT=${PORT} ./node_modules/.bin/babel-node src/js/server.js

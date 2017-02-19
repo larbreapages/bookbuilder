@@ -1,21 +1,27 @@
-import computePrice from '../pricing';
+import computePrice, { computeTVA } from '../pricing';
 
 const initialState = {
     bookbinding: 'modern',
-    color: 'black',
+    paper: 1,
+    wire: 1,
     format: 'small',
     pages: 72,
     gilding: '',
-    price: 0,
     shippingCosts: 5,
 };
 
 initialState.price = computePrice(initialState);
+initialState.tva = computeTVA(initialState.price);
+initialState.priceTTC = initialState.price + initialState.tva;
+initialState.total = initialState.priceTTC + initialState.shippingCosts;
 
 export default function book(state = initialState, action) {
     switch (action.type) {
-    case 'CHOOSE_COLOR':
-        state.color = action.payload;
+    case 'CHOOSE_PAPER':
+        state.paper = action.payload;
+        return state;
+    case 'CHOOSE_WIRE':
+        state.wire = action.payload;
         return state;
     case 'CHOOSE_BOOKBINDING': {
         state.bookbinding = action.payload;

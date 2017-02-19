@@ -19,6 +19,10 @@ const initialState = {
 
 export default function steps(state = initialState, action) {
     switch (action.type) {
+    case 'CHOOSE_STEP': {
+        const currentStep = action.payload;
+        return { ...state, currentStep };
+    }
     case 'NEXT_STEP': {
         if (state.currentStep >= state.steps.length) {
             return state;
@@ -35,6 +39,9 @@ export default function steps(state = initialState, action) {
     }
     case 'ACCEPT_CONDITIONS': {
         return { ...state, acceptConditions: !state.acceptConditions };
+    }
+    case 'RESET': {
+        return { ...state, currentStep: 0, reset: true };
     }
     default:
         return state;

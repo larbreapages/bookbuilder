@@ -74,11 +74,11 @@ const computePagePrice = (bookbinding, format, pages) => {
 };
 
 const round = (value, decimals) => Number(`${Math.round(`${value}e${decimals}`)}e-${decimals}`);
+export const computeTVA = price => round((price * 20) / 100, 2);
+
 const computePrice = ({ bookbinding, format, pages, gilding }) => {
     return round(computeFormatPrice(bookbinding, format) +
            computePagePrice(bookbinding, format, pages) +
            computeGildingPrice(gilding), 2);
 };
-
-export const computeTVA = price => round((price * 20) / 100, 2);
 export default computePrice;

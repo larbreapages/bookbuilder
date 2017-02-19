@@ -2,6 +2,7 @@ import express from 'express';
 import config from 'config';
 import s from 'stripe';
 import computePrice from './pricing';
+import sendMail from './sendMail';
 
 const secretKey = config.secretKey;
 const payment = express();
@@ -36,6 +37,8 @@ payment.all('/save-stripe-token', (req, res) => {
                 res.send({ success: false });
             }
         });
+    }).then(() => {
+        sendMail({ mail: token.email, subject: 'Confirmation', body: 'Hello !' });
     });
 
     return res.send({ success: true });

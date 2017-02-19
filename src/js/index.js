@@ -25,5 +25,5 @@ ReactDOM.render(
     <Provider store={store}>
         <Router routes={Routes} history={browserHistory} />
     </Provider>,
-    document.getElementById('root')
+    document.getElementById('bookbuilder')
 );

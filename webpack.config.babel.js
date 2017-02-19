@@ -12,9 +12,8 @@ module.exports = {
         ],
     },
     output: {
-        path: `${__dirname}/public`,
-        filename: 'bundle.js',
-        publicPath: 'http://localhost:3000/',
+        path: `${__dirname}/dist`,
+        filename: 'bookbuilder.js',
     },
     module: {
         loaders: [
@@ -44,6 +43,8 @@ module.exports = {
         }),
         new webpack.DefinePlugin({
             CONFIG: JSON.stringify(config),
+            'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
         }),
+        new webpack.optimize.UglifyJsPlugin(),
     ],
 };

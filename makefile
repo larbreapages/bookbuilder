@@ -12,15 +12,15 @@ run-dev: ## Run dev environment
 	@ NODE_ENV=development PORT=${PORT} ./node_modules/.bin/babel-node src/js/server.js & make watch & make browser-sync
 
 browser-sync:
-	@ browser-sync start --proxy "http://localhost:${PORT}" --files "public/*"
+	@ browser-sync start --proxy "http://localhost:${PORT}" --files "dist/*"
 
 watch: ## Watch
-	@ mkdir -p public && cp favicon.ico public/
+	@ mkdir -p dist && cp favicon.ico dist/
 	@ ./node_modules/.bin/webpack --watch -d
 
 build: ## Build with webpack
-	@ mkdir -p public && cp favicon.ico public/
-	@ ./node_modules/.bin/webpack -p --progress --colors
+	@ mkdir -p dist && cp favicon.ico dist/
+	@ NODE_ENV=production ./node_modules/.bin/webpack -p --progress --colors
 
 lint:
 	@ ./node_modules/.bin/eslint --fix src/

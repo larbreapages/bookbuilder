@@ -2,11 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
-import { Router, browserHistory } from 'react-router';
 import { loadState, saveState, removeState } from './localStorage';
 import { computeTVA } from './pricing';
 import reducers from './reducers';
-import Routes from './routes';
+import App from './components/App';
 
 const persistedState = loadState();
 const store = createStore(
@@ -27,7 +26,7 @@ store.subscribe(() => {
 
 ReactDOM.render(
     <Provider store={store}>
-        <Router routes={Routes} history={browserHistory} />
+        <App />
     </Provider>,
     document.getElementById('bookbuilder')
 );

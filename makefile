@@ -23,4 +23,7 @@ build: ## Build with webpack
 	@ NODE_ENV=production ./node_modules/.bin/webpack -p --progress --colors
 
 lint:
+	@ ./node_modules/.bin/eslint src/
+
+lint-fix:
 	@ ./node_modules/.bin/eslint --fix src/

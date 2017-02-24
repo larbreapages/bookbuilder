@@ -23,7 +23,7 @@
     "eslint-plugin-jsx-a11y": "^2.2.3",
     "eslint-plugin-react": "^6.10.0",
     "expose-loader": "^0.7.1",
-    "extract-text-webpack-plugin": "beta",
+    "extract-text-webpack-plugin": "^2.0.0",
     "file-loader": "^0.10.0",
     "html-loader": "^0.4.3",
     "html-webpack-plugin": "^2.15.0",

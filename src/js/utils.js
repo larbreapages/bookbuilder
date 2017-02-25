@@ -1,4 +1,4 @@
-// @TODO: Refactoring prices with constants
+// @TODO: Big Refactoring
 
 const computeGildingPrice = (gilding) => {
     const gildingCharacters = gilding.replace(/[.,/#!$%^&*;:{}=\-_`~()]/g, '').replace(/\s/g, '').length;
@@ -74,11 +74,61 @@ const computePagePrice = (bookbinding, format, pages) => {
 };
 
 const round = (value, decimals) => Number(`${Math.round(`${value}e${decimals}`)}e-${decimals}`);
+
 export const computeTVA = price => round((price * 20) / 100, 2);
 
-const computePrice = ({ bookbinding, format, pages, gilding }) => {
-    return round(computeFormatPrice(bookbinding, format) +
-           computePagePrice(bookbinding, format, pages) +
-           computeGildingPrice(gilding), 2);
+export const computePrice = ({ bookbinding, format, pages, gilding }) =>
+    round(computeFormatPrice(bookbinding, format) +
+        computePagePrice(bookbinding, format, pages) +
+        computeGildingPrice(gilding), 2);
+
+export const convertToText = (book) => {
+    const wires = [
+        'Violet',
+        'Bleu Canard',
+        'Rouge Brique',
+        'Jaune Canard',
+    ];
+
+    const papers = [
+        'Vagues',
+        'Bulles',
+        'Brume',
+        'Pamplemousse',
+        'Marron',
+        'Pourpre',
+        'Gris',
+        'Noir',
+    ];
+
+    const formats = {
+        small: 'Petit (16 x 12 cm)',
+        medium: 'Moyen (20 x 16 cm)',
+        large: 'Grand (24 x 20 cm)',
+    };
+
+    const bookbindings = {
+        modern: 'Moderne',
+        conservation: 'Conservation',
+    };
+
+    return {
+        bookbinding: bookbindings[book.bookbinding],
+        gilding: book.gilding.trim() || 'Aucune',
+        format: formats[book.format],
+        paper: papers[book.paper - 1],
+        wire: wires[book.wire - 1],
+    };
 };
-export default computePrice;
+
+export const createDescription = (book) => {
+    const bookText = convertToText(book);
+
+    let description = `Reliure ${bookText.bookbinding} - Papier blanc 120g ${bookText.paper} - `;
+    description += (book.bookbinding === 'modern' ? `Fil de couture couleur ${bookText.wire} - ` : '');
+    description += `Format ${bookText.format} - ${book.pages} pages. - `;
+    description += (book.gilding ? `Avec la mention "${bookText.gilding}" couleur or.` : '');
+
+    return description;
+};
+

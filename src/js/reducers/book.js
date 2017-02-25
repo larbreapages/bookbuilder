@@ -1,4 +1,4 @@
-import computePrice, { computeTVA } from '../pricing';
+import { computePrice, computeTVA } from '../utils';
 
 const initialState = {
     bookbinding: 'modern',

@@ -1,14 +1,10 @@
 import express from 'express';
 import s from 'stripe';
-import computePrice from './pricing';
+import { computePrice, createDescription } from './utils';
 import sendMail from './sendMail';
 
 const stripeSecretKey = process.env.STRIPE_SECRET_KEY;
 const payment = express();
-
-const createDescription = (book) => {
-    return `Livre ${book.bookbinding}`;
-};
 
 payment.all('/save-stripe-token', (req, res) => {
     const book = req.body.book;

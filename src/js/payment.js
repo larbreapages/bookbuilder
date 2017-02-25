@@ -1,10 +1,9 @@
 import express from 'express';
-import config from 'config';
 import s from 'stripe';
 import computePrice from './pricing';
 import sendMail from './sendMail';
 
-const secretKey = config.secretKey;
+const secretKey = process.env.SECRET_KEY;
 const payment = express();
 
 const createDescription = (book) => {

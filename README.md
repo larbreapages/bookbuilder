@@ -11,7 +11,7 @@ Install
 Run
 ---
 
-`make run`
+`MAIL_PASSWORD=MYPASS SECRET_KEY=MYSECRET make run`
 
 Build
 ---

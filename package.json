@@ -1,6 +1,6 @@
 {
   "name": "bookbuilder",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Application to buy custom book",
   "homepage": "https://github.com/larbreapages/bookbuilder",
   "main": "dist/bookbuilder.js",

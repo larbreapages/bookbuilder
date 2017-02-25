@@ -1,7 +1,8 @@
 import React from 'react';
+import Button from 'antd/lib/button';
+import Tag from 'antd/lib/tag';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { Button, Tag } from 'antd';
 import { nextStep, previousStep } from '../actions/index';
 import PurchaseButton from './PurchaseButton';
 

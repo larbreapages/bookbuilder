@@ -1,5 +1,4 @@
 import nodemailer from 'nodemailer';
-import config from 'config';
 
 const transporter = nodemailer.createTransport({
     port: 587,
@@ -7,7 +6,7 @@ const transporter = nodemailer.createTransport({
     tls: true,
     auth: {
         user: 'contact@larbreapages.fr',
-        pass: config.mailPassword,
+        pass: process.env.MAIL_PASSWORD,
     },
 });
 

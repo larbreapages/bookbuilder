@@ -18,7 +18,7 @@ watch: ## Watch
 build: ## Build with webpack
 	@ mkdir -p dist && cp favicon.ico dist/
 	@ NODE_ENV=production ./node_modules/.bin/babel --minified --compact true -d dist/ src/js --only server.js,payment.js,sendMail.js,pricing.js
-	@ NODE_ENV=production ./node_modules/.bin/webpack --progress --colors
+	@ NODE_ENV=production ./node_modules/.bin/webpack -p --progress --colors
 
 browser-sync:
 	@ browser-sync start --proxy "http://localhost:${PORT}" --files "dist/*"

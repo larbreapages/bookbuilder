@@ -1,7 +1,9 @@
 import React from 'react';
+import Input from 'antd/lib/input';
+import Row from 'antd/lib/row';
+import Col from 'antd/lib/col';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { Input, Row, Col } from 'antd';
 import { chooseGilding } from '../actions/index';
 import GildingImg from '../../images/gilding.png';
 import GildingImg2 from '../../images/gilding2.png';

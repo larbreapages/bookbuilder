@@ -12,20 +12,19 @@ module.exports = {
         ],
     },
     output: {
-        path: `${__dirname}/public`,
-        filename: 'bundle.js',
-        publicPath: 'http://localhost:3000/',
+        path: `${__dirname}/dist`,
+        filename: 'bookbuilder.js',
     },
     module: {
-        loaders: [
-            { test: /\.html$/, loader: 'html' },
-            { test: /\.json$/, loader: 'json' },
-            { test: /\.s?css$/, loader: ExtractTextPlugin.extract('css!sass') },
-            { test: /\.jsx?$/, loader: 'babel', exclude: /node_modules/ },
-            { test: /\.less$/, loader: 'style-loader!css-loader!less-loader' },
+        rules: [
+            { test: /\.html$/, use: 'html-loader' },
+            { test: /\.json$/, use: 'json-loader' },
+            { test: /\.jsx?$/, use: 'babel-loader', exclude: /node_modules/ },
+            { test: /\.less$/, use: ExtractTextPlugin.extract({ fallback: 'style-loader', use: ['css-loader', 'less-loader'] }) },
+            { test: /\.s?css$/, use: ExtractTextPlugin.extract({ fallback: 'style-loader', use: ['css-loader', 'sass-loader'] }) },
             {
                 test: /\.(png|jpg|gif|svg|woff2?|eot|ttf)(\?.*)?$/,
-                loader: 'url',
+                loader: 'url-loader',
                 query: {
                     limit: 10000,
                     name: '[name]-[hash:7].[ext]',
@@ -39,11 +38,11 @@ module.exports = {
             template: `${__dirname}/src/index.html`,
             hash: true,
         }),
-        new ExtractTextPlugin('[name].css', {
-            allChunks: false,
-        }),
         new webpack.DefinePlugin({
             CONFIG: JSON.stringify(config),
+            'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
         }),
+        new ExtractTextPlugin({ filename: '[name].css', allChunks: false }),
+        new webpack.optimize.UglifyJsPlugin(),
     ],
 };

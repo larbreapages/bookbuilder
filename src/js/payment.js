@@ -1,10 +1,9 @@
 import express from 'express';
-import config from 'config';
 import s from 'stripe';
 import computePrice from './pricing';
 import sendMail from './sendMail';
 
-const secretKey = config.secretKey;
+const stripeSecretKey = process.env.STRIPE_SECRET_KEY;
 const payment = express();
 
 const createDescription = (book) => {
@@ -17,7 +16,7 @@ payment.all('/save-stripe-token', (req, res) => {
         return res.status(500).send({ error: 'Something failed!' });
     }
 
-    const stripe = s(secretKey);
+    const stripe = s(stripeSecretKey);
     const token = req.body.token;
     const price = computePrice(book);
     const description = createDescription(book);

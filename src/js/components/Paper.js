@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
+import Row from 'antd/lib/row';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { Row } from 'antd';
 import { choosePaper } from '../actions/index';
 import Paper1 from '../../images/paper_1.png';
 import Paper2 from '../../images/paper_2.png';

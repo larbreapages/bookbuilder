@@ -1,7 +1,8 @@
 import React from 'react';
+import InputNumber from 'antd/lib/input-number';
+import Row from 'antd/lib/row';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { InputNumber, Row } from 'antd';
 import { choosePagesNumber } from '../actions/index';
 
 const Pages = (props) => {

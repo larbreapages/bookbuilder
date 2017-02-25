@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Steps } from 'antd';
+import Steps from 'antd/lib/steps';
 import BookBinding from './BookBinding';
 import Color from './Color';
 import Format from './Format';

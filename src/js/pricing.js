@@ -1,7 +1,7 @@
 // @TODO: Refactoring prices with constants
 
 const computeGildingPrice = (gilding) => {
-    const gildingCharacters = gilding.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, '').replace(/\s/g, '').length;
+    const gildingCharacters = gilding.replace(/[.,/#!$%^&*;:{}=\-_`~()]/g, '').replace(/\s/g, '').length;
 
     let price = 0;
     if (gildingCharacters >= 1 && gildingCharacters <= 3) {

@@ -1,5 +1,6 @@
 import React from 'react';
-import { Icon, Button } from 'antd';
+import Button from 'antd/lib/button';
+import Icon from 'antd/lib/icon';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { reset } from '../actions/index';

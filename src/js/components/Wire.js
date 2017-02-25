@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { Row } from 'antd';
+import Row from 'antd/lib/row';
 import { chooseWire } from '../actions/index';
 import Wire1 from '../../images/wire_1.png';
 import Wire2 from '../../images/wire_2.png';

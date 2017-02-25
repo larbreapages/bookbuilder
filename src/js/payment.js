@@ -41,7 +41,7 @@ payment.all('/save-stripe-token', (req, res) => {
             }
         });
     }).then(() => {
-        sendMail({ mail: token.email, subject: 'Confirmation', body: 'Hello !' });
+        sendMail(token.email);
     });
 
     return res.send({ success: true });

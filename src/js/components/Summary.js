@@ -3,46 +3,7 @@ import Checkbox from 'antd/lib/checkbox';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { acceptConditions } from '../actions/index';
-
-// @TODO: Refactoring
-const convertToText = (book) => {
-    const wires = [
-        'Violet',
-        'Bleu Canard',
-        'Rouge Brique',
-        'Jaune Canard',
-    ];
-
-    const papers = [
-        'Vagues',
-        'Bulles',
-        'Brume',
-        'Pamplemousse',
-        'Marron',
-        'Pourpre',
-        'Gris',
-        'Noir',
-    ];
-
-    const formats = {
-        small: 'Petit (16 x 12 cm)',
-        medium: 'Moyen (20 x 16 cm)',
-        large: 'Grand (24 x 20 cm)',
-    };
-
-    const bookbindings = {
-        modern: 'Moderne',
-        conservation: 'Conservation',
-    };
-
-    return {
-        bookbinding: bookbindings[book.bookbinding],
-        gilding: book.gilding.trim() || 'Aucune',
-        format: formats[book.format],
-        paper: papers[book.paper - 1],
-        wire: wires[book.wire - 1],
-    };
-};
+import { convertToText } from '../utils';
 
 const Summary = (props) => {
     const bookText = convertToText(props.book);

@@ -124,10 +124,10 @@ export const convertToText = (book) => {
 export const createDescription = (book) => {
     const bookText = convertToText(book);
 
-    let description = `Reliure ${bookText.bookbinding} - Papier blanc 120g ${bookText.paper} - `;
-    description += (book.bookbinding === 'modern' ? `Fil de couture couleur ${bookText.wire} - ` : '');
-    description += `Format ${bookText.format} - ${book.pages} pages. - `;
-    description += (book.gilding ? `Avec la mention "${bookText.gilding}" couleur or.` : '');
+    let description = `Reliure ${bookText.bookbinding} - Papier blanc 120g ${bookText.paper}`;
+    description += (book.bookbinding === 'modern' ? ` - Fil de couture couleur ${bookText.wire}` : '');
+    description += ` - Format ${bookText.format} - ${book.pages} pages`;
+    description += (book.gilding ? ` - Avec la mention "${bookText.gilding}" couleur or.` : '');
 
     return description;
 };

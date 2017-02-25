@@ -10,15 +10,24 @@ app.use(compression());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-// Stripe payment
 app.use(payment);
 
-// serve static stuff
-app.use(express.static(path.join(__dirname, '../../dist')));
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static(path.join(__dirname)));
 
-// send all requests to index.html so browserHistory works
+    app.get('/', (req, res) => {
+        res.sendFile(path.join(__dirname, 'index.html'));
+    });
+} else {
+    app.use(express.static(path.join(__dirname, '../../dist')));
+
+    app.get('/', (req, res) => {
+        res.sendFile(path.join(__dirname, '../../dist', 'index.html'));
+    });
+}
+
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../../dist', 'index.html'));
+    res.status(404).send('Not found');
 });
 
 app.listen(PORT, () => {

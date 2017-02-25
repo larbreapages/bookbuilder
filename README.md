@@ -1,6 +1,8 @@
 Bookbuilder
 ===
 
+[![npm version](https://badge.fury.io/js/bookbuilder.svg)](https://badge.fury.io/js/bookbuilder)
+
 Bookbuilder for larbreapages.fr with react.js
 
 Install
@@ -8,15 +10,15 @@ Install
 
 `make install`
 
-Run
----
-
-`MAIL_PASSWORD=MYPASS STRIPE_SECRET_KEY=MYSECRET make run`
-
 Build
 ---
 
 `make build`
+
+Run
+---
+
+`MAIL_PASSWORD=MYPASS STRIPE_SECRET_KEY=MYSECRET make run`
 
 License
 ---

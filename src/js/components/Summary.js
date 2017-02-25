@@ -1,7 +1,7 @@
 import React from 'react';
+import Checkbox from 'antd/lib/checkbox';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { Checkbox } from 'antd';
 import { acceptConditions } from '../actions/index';
 
 // @TODO: Refactoring

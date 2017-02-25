@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
+import Radio from 'antd/lib/radio';
+import Row from 'antd/lib/row';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { Radio, Checkbox, Row } from 'antd';
 import { chooseFormat, acceptConditions } from '../actions/index';
 import Pages from './Pages';
 import Gilding from './Gilding';

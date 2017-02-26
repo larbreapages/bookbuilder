@@ -5,6 +5,10 @@
   "homepage": "https://github.com/larbreapages/bookbuilder",
   "main": "dist/bookbuilder.js",
   "license": "MIT",
+  "repository": {
+      "type": "git",
+      "url": "git+https://github.com/larbreapages/bookbuilder.git"
+  },
   "devDependencies": {
     "babel-cli": "^6.18.0",
     "babel-core": "^6.7.4",

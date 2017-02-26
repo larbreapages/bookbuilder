@@ -6,8 +6,8 @@
   "main": "dist/bookbuilder.js",
   "license": "MIT",
   "repository": {
-      "type": "git",
-      "url": "git+https://github.com/larbreapages/bookbuilder.git"
+    "type": "git",
+    "url": "git+https://github.com/larbreapages/bookbuilder.git"
   },
   "devDependencies": {
     "babel-cli": "^6.18.0",
@@ -60,7 +60,8 @@
     "react-steps": "0.0.4",
     "react-stripe-checkout": "^2.2.5",
     "redux": "^3.6.0",
-    "stripe": "^4.14.0"
+    "stripe": "^4.14.0",
+    "whatwg-fetch": "^2.0.2"
   },
   "keywords": [
     "react",

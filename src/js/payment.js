@@ -1,14 +1,10 @@
 import express from 'express';
 import s from 'stripe';
-import computePrice from './pricing';
+import { createDescription, checkValidPrice } from './utils';
 import sendMail from './sendMail';
 
 const stripeSecretKey = process.env.STRIPE_SECRET_KEY;
 const payment = express();
-
-const createDescription = (book) => {
-    return `Livre ${book.bookbinding}`;
-};
 
 payment.all('/save-stripe-token', (req, res) => {
     const book = req.body.book;
@@ -18,10 +14,9 @@ payment.all('/save-stripe-token', (req, res) => {
 
     const stripe = s(stripeSecretKey);
     const token = req.body.token;
-    const price = computePrice(book);
     const description = createDescription(book);
 
-    if (!price) {
+    if (!checkValidPrice(book)) {
         return res.send({ success: false });
     }
 
@@ -30,7 +25,7 @@ payment.all('/save-stripe-token', (req, res) => {
         source: token.id,
     }).then((customer) => {
         return stripe.charges.create({
-            amount: price * 100,
+            amount: book.total * 100,
             currency: 'EUR',
             description,
             metadata: { vat_rate: 20 },
@@ -42,6 +37,9 @@ payment.all('/save-stripe-token', (req, res) => {
         });
     }).then(() => {
         sendMail(token.email);
+    }).catch(e => {
+        console.error(e);
+        return res.send({ success: false });
     });
 
     return res.send({ success: true });

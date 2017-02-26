@@ -39,11 +39,11 @@
         justify-content: space-between;
     }
 
-    .finish {
+    .finish, .error {
         margin-top: 20px;
         text-align:center;
 
-        .anticon-check-circle-o {
+        .anticon-check-circle-o, .anticon-close-circle {
             font-size: 100px;
         }
 

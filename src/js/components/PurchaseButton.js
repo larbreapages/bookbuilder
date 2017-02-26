@@ -3,7 +3,8 @@ import StripeCheckout from 'react-stripe-checkout';
 import Button from 'antd/lib/button';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { nextStep } from '../actions/index';
+import { nextStep, chooseStep } from '../actions/index';
+import { checkStatus } from '../utils';
 
 const PurchaseButton = (props) => {
     const onToken = (token) => {
@@ -11,8 +12,13 @@ const PurchaseButton = (props) => {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ token, book: props.book }),
-        }).then(() => {
+        })
+        .then(checkStatus)
+        .then(() => {
             props.nextStep();
+        }).catch(e => {
+            props.chooseStep(5);
+            console.error(e);
         });
     };
 
@@ -40,7 +46,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ nextStep }, dispatch);
+    return bindActionCreators({ nextStep, chooseStep }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(PurchaseButton);

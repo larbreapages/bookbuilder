@@ -1,4 +1,4 @@
-import { computePrice, computeTVA } from '../utils';
+import { computePrice, computeTVA, shippingCosts } from '../utils';
 
 const initialState = {
     bookbinding: 'modern',
@@ -7,7 +7,7 @@ const initialState = {
     format: 'small',
     pages: 72,
     gilding: '',
-    shippingCosts: 5,
+    shippingCosts,
 };
 
 initialState.price = computePrice(initialState);

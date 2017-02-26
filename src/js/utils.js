@@ -132,3 +132,22 @@ export const createDescription = (book) => {
     return description;
 };
 
+export const shippingCosts = 5;
+
+export const checkValidPrice = (book) => {
+    const validPrice = computePrice(book);
+    const validTvaPrice = computeTVA(validPrice);
+    const validTotalPrice = validPrice + validTvaPrice + shippingCosts;
+
+    return book.total === validTotalPrice;
+};
+
+export const checkStatus = (response) => {
+    if (response.status >= 200 && response.status < 300) {
+        return response;
+    }
+
+    const error = new Error(response.statusText);
+    error.response = response;
+    throw error;
+};

@@ -5,6 +5,9 @@
   "homepage": "https://github.com/larbreapages/bookbuilder",
   "main": "dist/bookbuilder.js",
   "license": "MIT",
+  "scripts": {
+    "prepublish": "make build"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/larbreapages/bookbuilder.git"
@@ -21,13 +24,13 @@
     "babel-preset-stage-0": "^6.5.0",
     "css-loader": "^0.26.1",
     "cssnext-loader": "^1.0.1",
-    "eslint": "^3.3.0",
+    "eslint": "^3.17.0",
     "eslint-config-airbnb": "^10.0.1",
     "eslint-plugin-import": "^1.16.0",
     "eslint-plugin-jsx-a11y": "^2.2.3",
     "eslint-plugin-react": "^6.10.0",
     "expose-loader": "^0.7.1",
-    "extract-text-webpack-plugin": "^2.0.0",
+    "extract-text-webpack-plugin": "^2.1.0",
     "file-loader": "^0.10.0",
     "html-loader": "^0.4.3",
     "html-webpack-plugin": "^2.15.0",
@@ -35,6 +38,7 @@
     "less": "^2.7.1",
     "less-loader": "^2.2.3",
     "node-sass": "^4.5.0",
+    "nunjucks-loader": "^2.4.5",
     "raw-loader": "^0.5.1",
     "sass-loader": "^6.0.1",
     "style-loader": "^0.13.1",
@@ -44,11 +48,11 @@
     "webpack-dev-server": "^2.4.0"
   },
   "dependencies": {
-    "antd": "^2.7.2",
-    "body-parser": "^1.15.2",
+    "antd": "^2.7.4",
+    "body-parser": "^1.17.0",
     "compression": "^1.6.2",
     "config": "git+https://github.com/jcherqui/node-config",
-    "express": "^4.14.0",
+    "express": "^4.15.0",
     "hint.css": "^2.4.1",
     "mjml": "^3.2.2",
     "nodemailer": "^2.7.2",

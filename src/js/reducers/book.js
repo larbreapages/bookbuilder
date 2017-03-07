@@ -34,9 +34,13 @@ export default function book(state = initialState, action) {
         return { ...state, price: newPrice };
     }
     case 'CHOOSE_PAGES_NUMBER': {
-        state.pages = action.payload;
-        const newPrice = computePrice(state);
-        return { ...state, price: newPrice };
+        const pages = action.payload;
+        let price = state.price;
+        if (typeof pages === 'number' && (pages >= 72 && pages <= 240)) {
+            state.pages = pages;
+            price = computePrice(state);
+        }
+        return { ...state, price };
     }
     case 'CHOOSE_FORMAT': {
         state.format = action.payload;

@@ -15,7 +15,7 @@ const Gilding = (props) => {
 
     return (<div>
         <Row>
-            <p className="title">Choisis ta dorure <span className="hint--top hint--large" aria-label="Votre inscription sera réalisée en majuscules. L’atelier se réserve le droit de modifier l’emplacement et l’organisation de votre inscription sur l’ouvrage si la longueur de celle-ci ne peut figurer, par manque de place, à l’emplacement initialement prévu sur l’image. Les dorures sont réalisées de manière artisanale à la feuille d’or (or véritable)."><a href="#">[Plus d'infos] :</a></span></p>
+            <p className="title">Choisis ta dorure <span className="hint--top hint--large" aria-label="Votre inscription sera réalisée en majuscules. L’atelier se réserve le droit de modifier l’emplacement et l’organisation de votre inscription sur l’ouvrage si la longueur de celle-ci ne peut figurer, par manque de place, à l’emplacement initialement prévu sur l’image. Les dorures sont réalisées de manière artisanale à la feuille d’or (or véritable)."><span className="link">[Plus d'infos] :</span></span></p>
             <Input
                 type="text"
                 id="gilding"

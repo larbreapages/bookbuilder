@@ -188,5 +188,14 @@
     tr td:nth-child(2) {
         padding-left: 20px;
     }
+
+    .link {
+        color: darkgoldenrod;
+
+        &:hover {
+            color: #c9a345;
+            cursor: pointer;
+        }
+    }
 }
 

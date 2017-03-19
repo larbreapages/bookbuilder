@@ -6,7 +6,7 @@ import * as webdriverio from 'webdriverio';
 let listeningServer;
 
 const options = {
-    browserName: 'phantomjs',
+    browserName: process.env.TRAVIS ? 'phantomjs' : 'chrome',
     port: 8081,
     logLevel: process.env.TRAVIS ? 'command' : 'silent',
 };
@@ -27,7 +27,7 @@ before(() => {
     return browser;
 });
 
-after(() => {
+after(async () => {
     listeningServer.close();
-    browser.end();
+    await browser.end();
 });

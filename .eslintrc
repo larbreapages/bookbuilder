@@ -18,5 +18,13 @@
     "ecmaFeatures": {
       "experimentalObjectRestSpread": true
     }
+  },
+  "env": {
+    "browser": true,
+    "mocha": true
+  },
+  "globals": {
+    "assert",
+    "browser"
   }
 }

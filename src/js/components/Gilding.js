@@ -25,12 +25,12 @@ const Gilding = (props) => {
             />
         </Row>
         <Row>
-            <Col span={5}>
+            <Col xs={12} sm={5}>
                 <div className="zoom">
-                    <img src={props.book.bookbinding === 'modern' ? GildingImg : GildingImg2} alt="gilding example" width="200" />
+                    <img src={props.book.bookbinding === 'modern' ? GildingImg : GildingImg2} alt="gilding example" width="150" />
                 </div>
             </Col>
-            <Col span={19}>
+            <Col xs={12} sm={19}>
                 <p>{gildingText}</p>
             </Col>
         </Row>

@@ -2,7 +2,10 @@
 @primary-color: darkgoldenrod;
 
 .ant-modal {
-    width: 700px!important;
+    @media (min-width: 768px) {
+        width: 700px !important;
+    }
+
     top: 60px;
 }
 

@@ -35,3 +35,8 @@ lint:
 
 lint-fix:
 	@ ./node_modules/.bin/eslint --fix src/
+
+deploy:
+	@ rm -rf dist/
+	@ make build
+	@ npm publish

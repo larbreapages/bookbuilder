@@ -6,7 +6,7 @@ install:
   - npm update
   - npm i -g yarn
   - make install
-  - node node_modules/node-sass/scripts/install.js && npm rebuild node-sass # https://github.com/sass/node-sass/issues/1579
+  - npm rebuild node-sass # https://github.com/sass/node-sass/issues/1579
 before_script:
   - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start

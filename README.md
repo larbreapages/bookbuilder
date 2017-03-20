@@ -1,6 +1,7 @@
 Bookbuilder
 ===
 
+[![Build Status](https://travis-ci.org/larbreapages/bookbuilder.svg?branch=master)](https://travis-ci.org/larbreapages/bookbuilder/)
 [![npm version](https://badge.fury.io/js/bookbuilder.svg)](https://badge.fury.io/js/bookbuilder)
 
 Bookbuilder for larbreapages.fr with react.js

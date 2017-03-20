@@ -28,7 +28,7 @@ test: ## Run tests
 	@ NODE_ENV=test ./node_modules/.bin/mocha -t 99999999 --compilers js:babel-core/register --require babel-polyfill test/hook.js test/specs/*.spec.js
 
 browser-sync:
-	@ browser-sync start --proxy "http://localhost:${PORT}" --files "dist/*"
+	@ ./node_modules/.bin/browser-sync start --proxy "http://0.0.0.0:${PORT}" --files "dist/*"
 
 lint:
 	@ ./node_modules/.bin/eslint src/

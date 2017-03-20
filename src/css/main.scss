@@ -7,7 +7,7 @@
         flex-direction: column;
         min-height: 380px;
         margin: auto;
-        padding: 10px;
+        padding: 8px;
     }
 
     .steps {
@@ -67,7 +67,13 @@
             border-radius: 5px;
             //overflow: hidden;
             font-size: 0;
-            margin-right: 10px;
+            margin-right: 5px;
+        }
+
+        @media (min-width: 768px) {
+            .choice {
+                margin-right: 10px;
+            }
         }
 
         img {
@@ -82,6 +88,7 @@
         .choice {
             position: relative;
             text-align: center;
+            margin-bottom: 10px;
 
             &.active {
                 border: 1px solid darkgoldenrod;
@@ -103,7 +110,14 @@
         }
 
         &.bookbinding img {
+            max-width: 295px;
             max-height: 237px;
+        }
+
+        @media (min-width: 622px) {
+            &.bookbinding img {
+                max-width: none!important;
+            }
         }
 
         &.paper, &.wire {
@@ -128,7 +142,7 @@
     }
 
     .zoom {
-        max-width: 200px;
+        max-width: 150px;
         overflow: hidden;
         border: 1px solid #ddd;
         font-size: 0;
@@ -200,6 +214,25 @@
 
     .ant-input-number-handler-wrap {
         opacity: inherit;
+    }
+
+    .ant-radio-group label {
+        display: block;
+    }
+
+    @media (min-width: 768px) {
+        .ant-radio-group label {
+            display: inline;
+        }
+    }
+
+    .ant-steps.ant-steps-small .ant-steps-title {
+        overflow: hidden;
+        width: 60px;
+
+        @media (min-width: 450px) {
+            width: auto;
+        }
     }
 }
 

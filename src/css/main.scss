@@ -70,6 +70,12 @@
             margin-right: 5px;
         }
 
+        @media (min-width: 768px) {
+            .choice {
+                margin-right: 10px;
+            }
+        }
+
         img {
             user-drag: none; 
             user-select: none;
@@ -217,6 +223,15 @@
     @media (min-width: 768px) {
         .ant-radio-group label {
             display: inline;
+        }
+    }
+
+    .ant-steps.ant-steps-small .ant-steps-title {
+        overflow: hidden;
+        width: 60px;
+
+        @media (min-width: 450px) {
+            width: auto;
         }
     }
 }

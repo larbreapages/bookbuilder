@@ -1,5 +1,6 @@
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
+import StringReplacePlugin from 'string-replace-webpack-plugin';
 import webpack from 'webpack';
 import config from 'config';
 
@@ -23,6 +24,15 @@ module.exports = {
             { test: /\.jsx?$/, use: 'babel-loader', exclude: /node_modules/ },
             { test: /\.less$/, use: ExtractTextPlugin.extract({ fallback: 'style-loader', use: ['css-loader', 'less-loader'] }) },
             { test: /\.s?css$/, use: ExtractTextPlugin.extract({ fallback: 'style-loader', use: ['css-loader', 'sass-loader'] }) },
+            {
+                test: /\.js$/,
+                loader: StringReplacePlugin.replace({
+                    replacements: [
+                        { pattern: /global\.MutationObserver/g, replacement: () => 'window.MutationObserver' },
+                        { pattern: /global\.WebKitMutationObserver/g, replacement: () => 'window.WebKitMutationObserver' },
+                    ],
+                }),
+            },
             {
                 test: /\.(png|jpg|gif|svg|woff2?|eot|ttf)(\?.*)?$/,
                 loader: 'url-loader',

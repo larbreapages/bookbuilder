@@ -7,11 +7,27 @@ import { nextStep, previousStep } from '../actions/index';
 import PurchaseButton from './PurchaseButton';
 
 const Footer = (props) => {
+    const validStep = () => {
+        if (props.currentStep === 0) return props.book.bookbinding;
+        if (props.currentStep === 1) {
+            if (props.book.bookbinding === 'conservation') {
+                return (props.book.paper > 5);
+            }
+            if (props.book.bookbinding === 'modern') {
+                return (props.book.paper < 5 && props.book.wire);
+            }
+        }
+        if (props.currentStep === 2) {
+            return (props.book.format && props.book.pages);
+        }
+        return false;
+    };
+
     const previousButton = <Button type="ghost" disabled={!props.currentStep} onClick={() => props.previousStep()}>Précédent</Button>;
 
     let nextButton;
     if (props.currentStep < props.stepsLength - 1) {
-        nextButton = <Button type="ghost" onClick={() => props.nextStep()}>Suivant</Button>;
+        nextButton = <Button type="ghost" onClick={() => props.nextStep()} disabled={!validStep()}>Suivant</Button>;
     }
 
     let purchaseButton;

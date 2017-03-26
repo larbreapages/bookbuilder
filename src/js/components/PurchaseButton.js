@@ -16,7 +16,7 @@ const PurchaseButton = (props) => {
         .then(checkStatus)
         .then(() => {
             props.nextStep();
-        }).catch(e => {
+        }).catch((e) => {
             props.chooseStep(5);
             console.error(e);
         });

@@ -16,13 +16,6 @@ class BookBinding extends Component {
     handleChange(value) {
         this.props.chooseBookBinding(value);
         this.setState({ bookbinding: value });
-        if (value === 'modern') {
-            this.props.choosePaper(1);
-        }
-
-        if (value === 'conservation') {
-            this.props.choosePaper(5);
-        }
     }
 
     render() {

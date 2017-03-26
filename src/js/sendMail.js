@@ -35,6 +35,6 @@ const mailOptions = {
     html: htmlOutput,
 };
 
-const sendMail = (email) => transporter.sendMail({ ...mailOptions, to: email });
+const sendMail = email => transporter.sendMail({ ...mailOptions, to: email });
 
 export default sendMail;

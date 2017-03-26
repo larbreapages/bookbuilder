@@ -3,15 +3,19 @@ const initialState = {
     acceptConditions: false,
     steps: [
         {
+            step: 0,
             title: 'RELIURE',
         },
         {
+            step: 1,
             title: 'COULEURS',
         },
         {
+            step: 2,
             title: 'FORMAT',
         },
         {
+            step: 3,
             title: 'PAIEMENT',
         },
     ],

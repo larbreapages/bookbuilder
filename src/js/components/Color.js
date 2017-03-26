@@ -1,12 +1,30 @@
 import React from 'react';
+import Button from 'antd/lib/button';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { previousStep, nextStep } from '../actions/index';
 import Wire from './Wire';
 import Paper from './Paper';
+import Price from './Price';
 
 const Color = (props) => {
-    return (<div>
-        <Paper />
-        { props.book.bookbinding === 'modern' ? <Wire /> : null }
+    const validStep = () => {
+        if (props.book.bookbinding === 'conservation') return (props.book.paper >= 5);
+        if (props.book.bookbinding === 'modern') return (props.book.paper < 5 && props.book.wire);
+
+        return false;
+    };
+
+    return (<div className="component">
+        <div className="container">
+            <Paper />
+            { props.book.bookbinding === 'modern' ? <Wire /> : null }
+        </div>
+        <div className="footer">
+            <Button type="ghost" onClick={() => props.previousStep()}>Précédent</Button>
+            <Price />
+            <Button type="ghost" onClick={() => props.nextStep()} disabled={!validStep()}>Suivant</Button>
+        </div>
     </div>);
 };
 
@@ -16,4 +34,8 @@ function mapStateToProps(state) {
     };
 }
 
-export default connect(mapStateToProps)(Color);
+function mapDispatchToProps(dispatch) {
+    return bindActionCreators({ previousStep, nextStep }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Color);

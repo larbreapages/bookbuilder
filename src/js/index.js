@@ -10,7 +10,7 @@ import App from './components/App';
 const persistedState = loadState();
 const store = createStore(
     reducers,
-    persistedState
+    persistedState,
 );
 
 const round = (value, decimals) => Number(`${Math.round(`${value}e${decimals}`)}e-${decimals}`);
@@ -28,5 +28,5 @@ ReactDOM.render(
     <Provider store={store}>
         <App />
     </Provider>,
-    document.getElementById('bookbuilder')
+    document.getElementById('bookbuilder'),
 );

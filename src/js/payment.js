@@ -37,7 +37,7 @@ payment.all('/save-stripe-token', (req, res) => {
         });
     }).then(() => {
         sendMail(token.email);
-    }).catch(e => {
+    }).catch((e) => {
         console.error(e);
         return res.send({ success: false });
     });

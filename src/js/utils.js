@@ -1,6 +1,6 @@
 // @TODO: Big Refactoring
 
-const computeGildingPrice = (gilding) => {
+const computeGildingPrice = (gilding = '') => {
     const gildingCharacters = gilding.replace(/[.,/#!$%^&*;:{}=\-_`~()]/g, '').replace(/\s/g, '').length;
 
     let price = 0;
@@ -77,7 +77,7 @@ const round = (value, decimals) => Number(`${Math.round(`${value}e${decimals}`)}
 
 export const computeTVA = price => round((price * 20) / 100, 2);
 
-export const computePrice = ({ bookbinding, format, pages, gilding }) =>
+export const computePrice = ({ bookbinding, format, pages, gilding = '' }) =>
     round(computeFormatPrice(bookbinding, format) +
         computePagePrice(bookbinding, format, pages) +
         computeGildingPrice(gilding), 2);

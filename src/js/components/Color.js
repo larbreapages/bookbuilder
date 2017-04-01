@@ -23,7 +23,12 @@ const Color = (props) => {
         <div className="footer">
             <Button type="ghost" onClick={() => props.previousStep()}>Précédent</Button>
             <Price />
-            <Button type="ghost" onClick={() => props.nextStep()} disabled={!validStep()}>Suivant</Button>
+            <Button
+                type="ghost"
+                className={(!validStep()) ? 'hint--top-left' : ''}
+                aria-label="Choisis ton papier"
+                onClick={() => props.nextStep()} disabled={!validStep()}
+            >Suivant</Button>
         </div>
     </div>);
 };

@@ -9,7 +9,7 @@ const Error = (props) => {
     return (<div className="error">
         <Icon type="close-circle" />
         <p>Erreur !</p>
-        <p>Veuillez contacter l'administrateur contact@larbreapages.fr.</p>
+        <p>Veuillez contacter l&apos;administrateur contact@larbreapages.fr.</p>
         <Button onClick={() => props.reset()}>Fermer</Button>
     </div>);
 };

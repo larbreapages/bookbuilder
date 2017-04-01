@@ -27,7 +27,7 @@ class Paper extends Component {
 
     modernPaperRender() {
         return (<div>
-            <p className="title">Choisis ton papier <span className="hint--top hint--large" aria-label='Ces papiers ont été réalisés de manière artisanale par les artistes Zeynep Uysal Kog et Katalin Perry (papiers marbrés à la "cuve").'><span className="link">[Plus d'infos]</span></span> :</p>
+            <p className="title">Choisis ton papier <span className="hint--top hint--large" aria-label='Ces papiers ont été réalisés de manière artisanale par les artistes Zeynep Uysal Kog et Katalin Perry (papiers marbrés à la "cuve").'><span className="link">[Plus d&apos;infos]</span></span> :</p>
             <div className="choices paper">
                 <div className={this.state.paper === 1 ? 'choice active' : 'choice'} onClick={() => this.handleChangePaper(1)}>
                     <img src={Paper1} alt="paper1" onDragStart={false} />

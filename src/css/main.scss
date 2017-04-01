@@ -3,11 +3,19 @@
     @import "~hint.css/hint.min.css";
 
     &> div[data-reactroot] {
-        display: flex;
-        flex-direction: column;
-        min-height: 380px;
         margin: auto;
         padding: 8px;
+    }
+
+    .component {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .footer {
+        margin-top: auto;
+        display: flex;
+        justify-content: space-between;
     }
 
     .steps {
@@ -22,21 +30,12 @@
         margin-bottom: 10px;
     }
 
-    .content {
-        flex: 1;
-    }
-
     .center {
         text-align: center;
     }
 
     .ant-row {
         margin-bottom: 20px;
-    }
-
-    .footer {
-        display: flex;
-        justify-content: space-between;
     }
 
     .finish, .error {
@@ -175,12 +174,12 @@
         font-weight: normal;
     }
 
-	hr {
-		margin-top: 10px !important;
-		margin-bottom: 10px !important;
+    hr {
+        margin-top: 10px !important;
+        margin-bottom: 10px !important;
         border: 0;
         border-top: 1px solid #eee;
-	}
+    }
 
     ul {
         margin-bottom: 10px !important;
@@ -233,6 +232,10 @@
         @media (min-width: 450px) {
             width: auto;
         }
+    }
+
+    .ant-steps-status-finish .ant-steps-head, .ant-steps-status-finish .ant-steps-main {
+        cursor: pointer;
     }
 }
 

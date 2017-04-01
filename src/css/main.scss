@@ -123,14 +123,15 @@
             img {
                 -webkit-transition: 0.4s ease;
                 transition: 0.4s ease;
-                width: 150px;
+                width: 200px;
             }
 
             .choice {
                 float: left;
                 position: relative;
-                width: 150px;
+                width: 200px;
                 overflow: hidden;
+                max-height: 140px;
             }
 
             .choice:hover img {

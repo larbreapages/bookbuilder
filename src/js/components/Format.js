@@ -19,7 +19,7 @@ class Format extends Component {
 
     render() {
         return (<div className="component">
-            <div className="container">
+            <div>
                 <Row>
                     <p className="title">Choisir ton format :</p>
                     <RadioGroup name="format" value={this.props.book.format} onChange={e => this.handleChange(e.target.value)}>

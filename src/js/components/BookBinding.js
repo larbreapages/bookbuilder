@@ -23,7 +23,7 @@ class BookBinding extends Component {
 
     render() {
         return (<div className="component">
-            <Row className="container">
+            <Row>
                 <p className="title">Choisis un type de reliure :</p>
                 <div className="choices bookbinding">
                     <div className={this.state.bookbinding === 'modern' ? 'choice active' : 'choice'} onClick={() => this.handleChange('modern')}>

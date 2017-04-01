@@ -16,7 +16,7 @@ const Color = (props) => {
     };
 
     return (<div className="component">
-        <div className="container">
+        <div>
             <Paper />
             { props.book.bookbinding === 'modern' ? <Wire /> : null }
         </div>

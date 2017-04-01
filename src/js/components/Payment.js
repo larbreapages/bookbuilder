@@ -29,7 +29,7 @@ class Payment extends React.Component {
 
     render() {
         return (<div className="component">
-            <div className="container">
+            <div>
                 <p>Voici le récapitulatif de votre commande, merci de vérifier l&apos;exactitude des informations avant de procéder au paiement :</p>
                 <hr />
                 <table>

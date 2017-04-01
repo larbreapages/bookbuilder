@@ -26,8 +26,8 @@ class Paper extends Component {
     }
 
     modernPaperRender() {
-        return (<Row>
-            <p className="title">Choisis ton papier <span className="hint--top hint--large" aria-label='Ces papiers ont été réalisés de manière artisanale par les artistes Zeynep Uysal Kog et Katalin Perry (papiers marbrés à la "cuve").'><span className="link">[Plus d'infos]</span></span> :</p>
+        return (<div>
+            <p className="title">Choisis ton papier <span className="hint--top hint--large" aria-label='Ces papiers ont été réalisés de manière artisanale par les artistes Zeynep Uysal Kog et Katalin Perry (papiers marbrés à la "cuve").'><span className="link">[Plus d&apos;infos]</span></span> :</p>
             <div className="choices paper">
                 <div className={this.state.paper === 1 ? 'choice active' : 'choice'} onClick={() => this.handleChangePaper(1)}>
                     <img src={Paper1} alt="paper1" onDragStart={false} />
@@ -46,11 +46,11 @@ class Paper extends Component {
                     <span>Pamplemousse</span>
                 </div>
             </div>
-        </Row>);
+        </div>);
     }
 
     conservationPaperRender() {
-        return (<Row>
+        return (<div>
             <p className="title">Choisis ton papier :</p>
             <div className="choices paper">
                 <div className={this.state.paper === 5 ? 'choice active' : 'choice'} onClick={() => this.handleChangePaper(5)}>
@@ -70,13 +70,13 @@ class Paper extends Component {
                     <span>Noir</span>
                 </div>
             </div>
-        </Row>);
+        </div>);
     }
 
     render() {
-        return (<div>
+        return (<Row>
             { this.props.book.bookbinding === 'modern' ? this.modernPaperRender() : this.conservationPaperRender() }
-        </div>);
+        </Row>);
     }
 }
 

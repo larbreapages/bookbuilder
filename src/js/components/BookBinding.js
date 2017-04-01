@@ -46,7 +46,12 @@ class BookBinding extends Component {
             <div className="footer">
                 <Button type="ghost" disabled>Précédent</Button>
                 <Price />
-                <Button type="ghost" onClick={() => this.props.nextStep()} disabled={!this.props.book.bookbinding}>Suivant</Button>
+                <Button
+                    type="ghost"
+                    className={(!this.props.book.bookbinding) ? 'hint--top-left' : ''}
+                    aria-label="Choisis un type de reliure"
+                    onClick={() => this.props.nextStep()} disabled={!this.props.book.bookbinding}
+                >Suivant</Button>
             </div>
         </div>);
     }

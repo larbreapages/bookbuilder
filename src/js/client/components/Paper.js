@@ -4,15 +4,15 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import classNames from 'classnames';
 import { choosePaper } from '../actions/index';
-import Paper1 from '../../images/paper_1.png';
-import Paper2 from '../../images/paper_2.png';
-import Paper3 from '../../images/paper_3.png';
-import Paper4 from '../../images/paper_4.png';
-import Paper5 from '../../images/paper_5.png';
-import Paper6 from '../../images/paper_6.png';
-import Paper7 from '../../images/paper_7.png';
-import Paper8 from '../../images/paper_8.png';
-import Paper9 from '../../images/paper_9.png';
+import Paper1 from '../../../images/paper_1.png';
+import Paper2 from '../../../images/paper_2.png';
+import Paper3 from '../../../images/paper_3.png';
+import Paper4 from '../../../images/paper_4.png';
+import Paper5 from '../../../images/paper_5.png';
+import Paper6 from '../../../images/paper_6.png';
+import Paper7 from '../../../images/paper_7.png';
+import Paper8 from '../../../images/paper_8.png';
+import Paper9 from '../../../images/paper_9.png';
 
 const papers = [
     { paper: Paper1, type: 'Vagues' },

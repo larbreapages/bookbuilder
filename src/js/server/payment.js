@@ -1,6 +1,6 @@
 import express from 'express';
 import s from 'stripe';
-import { createDescription, checkValidPrice } from './utils';
+import { createDescription, checkValidPrice } from '../shared/utils';
 import sendMail from './sendMail';
 
 const stripeSecretKey = process.env.STRIPE_SECRET_KEY;

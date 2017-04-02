@@ -5,12 +5,12 @@ import Button from 'antd/lib/button';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { acceptConditions, previousStep } from '../actions/index';
-import { convertToText } from '../utils';
+import { convertToText } from '../../shared/utils';
 import terms from '../views/terms.njk';
 import PurchaseButton from './PurchaseButton';
 import Price from './Price';
 
-class Payment extends React.Component {
+class StepPayment extends React.Component {
     constructor(props) {
         super(props);
         this.bookText = convertToText(this.props.book);
@@ -68,15 +68,7 @@ class Payment extends React.Component {
     }
 }
 
-function mapStateToProps(state) {
-    return {
-        book: state.book,
-        accept: state.steps.acceptConditions,
-    };
-}
+const mapStateToProps = state => ({ book: state.book, accept: state.steps.acceptConditions });
+const mapDispatchToProps = dispatch => bindActionCreators({ acceptConditions, previousStep }, dispatch);
 
-function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ acceptConditions, previousStep }, dispatch);
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Payment);
+export default connect(mapStateToProps, mapDispatchToProps)(StepPayment);

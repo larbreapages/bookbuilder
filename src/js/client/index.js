@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import { loadState, saveState, removeState } from './localStorage';
-import { computeTVA, round } from './utils';
+import { computeTVA, round } from '../shared/utils';
 import reducers from './reducers';
 import App from './components/App';
 

@@ -7,7 +7,7 @@ import config from 'config';
 module.exports = {
     entry: {
         index: [
-            './src/js/index.js',
+            './src/js/client/index.js',
             './src/css/main.scss',
             './src/css/main.less',
         ],

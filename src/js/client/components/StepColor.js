@@ -7,7 +7,7 @@ import Wire from './Wire';
 import Paper from './Paper';
 import Price from './Price';
 
-const Color = (props) => {
+const StepColor = (props) => {
     const validStep = () => {
         if (props.book.bookbinding === 'conservation') return (props.book.paper >= 5);
         if (props.book.bookbinding === 'modern') return (props.book.paper < 5 && props.book.wire);
@@ -33,14 +33,7 @@ const Color = (props) => {
     </div>);
 };
 
-function mapStateToProps(state) {
-    return {
-        book: state.book,
-    };
-}
+const mapStateToProps = state => ({ book: state.book });
+const mapDispatchToProps = dispatch => bindActionCreators({ previousStep, nextStep }, dispatch);
 
-function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ previousStep, nextStep }, dispatch);
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Color);
+export default connect(mapStateToProps, mapDispatchToProps)(StepColor);

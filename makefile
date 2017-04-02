@@ -10,7 +10,7 @@ run: ## Run application
 	@ NODE_ENV=production PORT=${PORT} node dist/server.js
 
 dev: ## Run dev environment
-	@ NODE_ENV=development PORT=${PORT} ./node_modules/.bin/babel-node src/js/server.js & make watch & make browser-sync
+	@ NODE_ENV=development PORT=${PORT} ./node_modules/.bin/babel-node src/js/server/server.js & make watch & make browser-sync
 
 watch: ## Watch
 	@ mkdir -p dist && cp favicon.ico dist/
@@ -18,10 +18,10 @@ watch: ## Watch
 
 build: ## Build with webpack
 	@ mkdir -p dist && cp favicon.ico dist/
-	@ NODE_ENV=production ./node_modules/.bin/babel --minified --compact true -d dist/ src/js --only server.js,payment.js,sendMail.js,utils.js
+	@ NODE_ENV=production ./node_modules/.bin/babel --minified --compact true -d dist/ src/js/server/ src/js/shared/
 	@ NODE_ENV=production ./node_modules/.bin/webpack -p --progress --colors
 
-start-selenium:
+start-selenium: ## Start Selenium Server
 	@ ./node_modules/.bin/selenium-standalone start
 
 test: ## Run tests

@@ -4,20 +4,20 @@ import Row from 'antd/lib/row';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { nextStep } from '../actions/index';
-import ModernImg from '../../images/modern.png';
-import ModernImg2 from '../../images/modern2.png';
-import ModernImg3 from '../../images/modern3.png';
-import ModernImg4 from '../../images/modern4.png';
-import ModernImg5 from '../../images/gilding.png';
-import ConservationImg from '../../images/conservation.png';
-import ConservationImg2 from '../../images/conservation2.png';
-import ConservationImg3 from '../../images/conservation3.png';
-import ConservationImg4 from '../../images/conservation4.png';
-import ConservationImg5 from '../../images/gilding2.png';
+import ModernImg from '../../../images/modern.png';
+import ModernImg2 from '../../../images/modern2.png';
+import ModernImg3 from '../../../images/modern3.png';
+import ModernImg4 from '../../../images/modern4.png';
+import ModernImg5 from '../../../images/gilding.png';
+import ConservationImg from '../../../images/conservation.png';
+import ConservationImg2 from '../../../images/conservation2.png';
+import ConservationImg3 from '../../../images/conservation3.png';
+import ConservationImg4 from '../../../images/conservation4.png';
+import ConservationImg5 from '../../../images/gilding2.png';
 import Gallery from './Gallery';
 import Price from './Price';
 
-const BookBinding = (props) => {
+const StepBookBinding = (props) => {
     return (<div className="component">
         <Row>
             <p className="title">Choisis un type de reliure :</p>
@@ -47,14 +47,7 @@ const BookBinding = (props) => {
     </div>);
 };
 
-function mapStateToProps(state) {
-    return {
-        book: state.book,
-    };
-}
+const mapStateToProps = state => ({ book: state.book });
+const mapDispatchToProps = dispatch => bindActionCreators({ nextStep }, dispatch);
 
-function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ nextStep }, dispatch);
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(BookBinding);
+export default connect(mapStateToProps, mapDispatchToProps)(StepBookBinding);

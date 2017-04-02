@@ -17,37 +17,35 @@ import ConservationImg5 from '../../images/gilding2.png';
 import Gallery from './Gallery';
 import Price from './Price';
 
-class BookBinding extends Component {
-    render() {
-        return (<div className="component">
-            <Row>
-                <p className="title">Choisis un type de reliure :</p>
-                <div className="galleries">
-                    <Gallery
-                        images={[ModernImg, ModernImg2, ModernImg3, ModernImg4, ModernImg5]}
-                        text="Reliure moderne"
-                        type="modern"
-                    />
-                    <Gallery
-                        images={[ConservationImg, ConservationImg2, ConservationImg3, ConservationImg4, ConservationImg5]}
-                        text="Reliure de conservation"
-                        type="conservation"
-                    />
-                </div>
-            </Row>
-            <div className="footer">
-                <Button type="ghost" disabled>Précédent</Button>
-                <Price />
-                <Button
-                    type="ghost"
-                    className={(!this.props.book.bookbinding) ? 'hint--top-left' : ''}
-                    aria-label="Choisis un type de reliure"
-                    onClick={() => this.props.nextStep()} disabled={!this.props.book.bookbinding}
-                >Suivant</Button>
+const BookBinding = (props) => {
+    return (<div className="component">
+        <Row>
+            <p className="title">Choisis un type de reliure :</p>
+            <div className="galleries">
+                <Gallery
+                    images={[ModernImg, ModernImg2, ModernImg3, ModernImg4, ModernImg5]}
+                    text="Reliure moderne"
+                    type="modern"
+                />
+                <Gallery
+                    images={[ConservationImg, ConservationImg2, ConservationImg3, ConservationImg4, ConservationImg5]}
+                    text="Reliure de conservation"
+                    type="conservation"
+                />
             </div>
-        </div>);
-    }
-}
+        </Row>
+        <div className="footer">
+            <Button type="ghost" disabled>Précédent</Button>
+            <Price />
+            <Button
+                type="ghost"
+                className={(!props.book.bookbinding) ? 'hint--top-left' : ''}
+                aria-label="Choisis un type de reliure"
+                onClick={() => props.nextStep()} disabled={!props.book.bookbinding}
+            >Suivant</Button>
+        </div>
+    </div>);
+};
 
 function mapStateToProps(state) {
     return {

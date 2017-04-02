@@ -64,7 +64,6 @@
 
     .choices {
         display: flex;
-        //overflow: hidden;
         flex-wrap: wrap;
         justify-content: flex-start;
 
@@ -73,7 +72,6 @@
             cursor: pointer;
             border: 1px solid #ddd;
             border-radius: 4px;
-            //overflow: hidden;
             font-size: 0;
             margin-right: 5px;
         }
@@ -121,7 +119,6 @@
 
         &.paper, &.wire {
             img {
-                -webkit-transition: 0.4s ease;
                 transition: 0.4s ease;
                 width: 200px;
             }
@@ -135,29 +132,10 @@
             }
 
             .choice:hover img {
-                -webkit-transform: scale(1.80);
                 transform: scale(1.80);
             }
         }
     }
-
-    //.zoom {
-        //max-width: 150px;
-        //overflow: hidden;
-        //border: 1px solid #ddd;
-        //font-size: 0;
-    //}
-
-    //.zoom:hover img {
-        //-webkit-transform: scale(1.80);
-        //transform: scale(1.80);
-        //max-width: 200px;
-    //}
-
-    //img {
-        //-webkit-transition: 0.4s ease;
-        //transition: 0.4s ease;
-    //}
 
     button.ant-btn-primary:not([disabled]) span {
         color: #fff;

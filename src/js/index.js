@@ -7,12 +7,7 @@ import { computeTVA, round } from './utils';
 import reducers from './reducers';
 import App from './components/App';
 
-const persistedState = loadState();
-const store = createStore(
-    reducers,
-    persistedState,
-);
-
+const store = createStore(reducers, loadState());
 store.subscribe(() => {
     saveState({ book: store.getState().book, steps: store.getState().steps });
     store.getState().book.tva = computeTVA(store.getState().book.price);

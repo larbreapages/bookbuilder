@@ -5,7 +5,15 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { nextStep } from '../actions/index';
 import ModernImg from '../../images/modern.png';
+import ModernImg2 from '../../images/modern2.png';
+import ModernImg3 from '../../images/modern3.png';
+import ModernImg4 from '../../images/modern4.png';
+import ModernImg5 from '../../images/gilding.png';
 import ConservationImg from '../../images/conservation.png';
+import ConservationImg2 from '../../images/conservation2.png';
+import ConservationImg3 from '../../images/conservation3.png';
+import ConservationImg4 from '../../images/conservation4.png';
+import ConservationImg5 from '../../images/gilding2.png';
 import Gallery from './Gallery';
 import Price from './Price';
 
@@ -15,8 +23,16 @@ class BookBinding extends Component {
             <Row>
                 <p className="title">Choisis un type de reliure :</p>
                 <div className="galleries">
-                    <Gallery images={[ModernImg, 'http://fakeimg.pl/300', 'http://fakeimg.pl/350']} text="Reliure moderne" type="modern" />
-                    <Gallery images={[ConservationImg, 'http://fakeimg.pl/500', 'http://fakeimg.pl/450']} text="Reliure de conservation" type="conservation" />
+                    <Gallery
+                        images={[ModernImg, ModernImg2, ModernImg3, ModernImg4, ModernImg5]}
+                        text="Reliure moderne"
+                        type="modern"
+                    />
+                    <Gallery
+                        images={[ConservationImg, ConservationImg2, ConservationImg3, ConservationImg4, ConservationImg5]}
+                        text="Reliure de conservation"
+                        type="conservation"
+                    />
                 </div>
             </Row>
             <div className="footer">

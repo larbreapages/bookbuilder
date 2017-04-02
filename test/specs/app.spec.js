@@ -9,7 +9,7 @@ describe('app', () => {
     });
 
     it('should select bookbinding', async () => {
-        await browser.click('.choices .choice:last-child img');
+        await browser.click('.gallery:last-child .zoom');
         await browser.click('.footer button:last-child');
     });
 

@@ -1,25 +1,27 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-// import classnames from 'classnames';
+import classNames from 'classnames';
+import $ from 'expose-loader?$!expose-loader?jQuery!jquery'; // eslint-disable-line
+import 'jquery-zoom/jquery.zoom.min';
 import { chooseBookBinding } from '../actions/index';
 
 const Gallery = class extends Component {
     constructor(props) {
         super(props);
-        this.state = { firstImage: props.images[0], bookbinding: props.book.bookbinding };
+        this.state = { firstImage: props.images[0] };
         this.handleChange = this.handleChange.bind(this);
     }
 
     handleChange(value) {
         this.props.chooseBookBinding(value);
-        this.setState({ bookbinding: value });
     }
 
     render() {
+        $(document).ready(() => $('.zoom').trigger('zoom.destroy').zoom({ magnify: 0.8 }));
         return (<div className="gallery">
-            <div className={this.state.bookbinding === this.props.type ? 'zoom active' : 'zoom'}>
-                <img src={this.state.firstImage} alt="bookbinding" onClick={() => this.handleChange(this.props.type)} />
+            <div className={classNames('zoom', { active: this.props.book.bookbinding === this.props.type })} onClick={() => this.handleChange(this.props.type)}>
+                <img src={this.state.firstImage} alt="bookbinding" />
                 <span>{this.props.text}</span>
             </div>
             <div className="thumbnails">
@@ -29,14 +31,7 @@ const Gallery = class extends Component {
     }
 };
 
-function mapStateToProps(state) {
-    return {
-        book: state.book,
-    };
-}
-
-function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ chooseBookBinding }, dispatch);
-}
+const mapStateToProps = state => ({ book: state.book });
+const mapDispatchToProps = dispatch => bindActionCreators({ chooseBookBinding }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Gallery);

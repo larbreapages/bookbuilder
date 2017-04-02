@@ -18,7 +18,7 @@ const Gallery = class extends Component {
     }
 
     render() {
-        $(document).ready(() => $('.zoom').trigger('zoom.destroy').zoom({ magnify: 0.8 }));
+        $(document).ready(() => $('.zoom').trigger('zoom.destroy').zoom({ magnify: 0.8, touch: false }));
         return (<div className="gallery">
             <div className={classNames('zoom', { active: this.props.book.bookbinding === this.props.type })} onClick={() => this.handleChange(this.props.type)}>
                 <img src={this.state.firstImage} alt="bookbinding" />

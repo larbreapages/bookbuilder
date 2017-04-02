@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Row from 'antd/lib/row';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import classNames from 'classnames';
 import { choosePaper } from '../actions/index';
 import Paper1 from '../../images/paper_1.png';
 import Paper2 from '../../images/paper_2.png';
@@ -11,13 +12,27 @@ import Paper5 from '../../images/paper_5.png';
 import Paper6 from '../../images/paper_6.png';
 import Paper7 from '../../images/paper_7.png';
 import Paper8 from '../../images/paper_8.png';
+import Paper9 from '../../images/paper_9.png';
+
+const papers = [
+    { paper: Paper1, type: 'Vagues' },
+    { paper: Paper2, type: 'Bulles' },
+    { paper: Paper3, type: 'Brume' },
+    { paper: Paper4, type: 'Pamplemousse' },
+    { paper: Paper5, type: 'Pamplemousse bleu' },
+    { paper: Paper6, type: 'Marron' },
+    { paper: Paper7, type: 'Pourpre' },
+    { paper: Paper8, type: 'Gris' },
+    { paper: Paper9, type: 'Noir' },
+];
+
+const description = 'Ces papiers ont été réalisés de manière artisanale par les artistes Zeynep Uysal Kog et Katalin Perry (papiers marbrés à la "cuve").';
 
 class Paper extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            paper: props.book.paper,
-        };
+        this.state = { paper: props.paper };
+        this.handleChangePaper.bind(this);
     }
 
     handleChangePaper(value) {
@@ -25,57 +40,25 @@ class Paper extends Component {
         this.setState({ paper: value });
     }
 
-    modernPaperRender() {
-        return (<div>
-            <p className="title">Choisis ton papier <span className="hint--top hint--large" aria-label='Ces papiers ont été réalisés de manière artisanale par les artistes Zeynep Uysal Kog et Katalin Perry (papiers marbrés à la "cuve").'><span className="link">[Plus d&apos;infos]</span></span> :</p>
-            <div className="choices paper">
-                <div className={this.state.paper === 1 ? 'choice active' : 'choice'} onClick={() => this.handleChangePaper(1)}>
-                    <img src={Paper1} alt="paper1" onDragStart={false} />
-                    <span>Vagues</span>
-                </div>
-                <div className={this.state.paper === 2 ? 'choice active' : 'choice'} onClick={() => this.handleChangePaper(2)}>
-                    <img src={Paper2} alt="paper2" />
-                    <span>Bulles</span>
-                </div>
-                <div className={this.state.paper === 3 ? 'choice active' : 'choice'} onClick={() => this.handleChangePaper(3)}>
-                    <img src={Paper3} alt="paper3" />
-                    <span>Brume</span>
-                </div>
-                <div className={this.state.paper === 4 ? 'choice active' : 'choice'} onClick={() => this.handleChangePaper(4)}>
-                    <img src={Paper4} alt="paper4" />
-                    <span>Pamplemousse</span>
-                </div>
-            </div>
-        </div>);
-    }
-
-    conservationPaperRender() {
-        return (<div>
-            <p className="title">Choisis ton papier :</p>
-            <div className="choices paper">
-                <div className={this.state.paper === 5 ? 'choice active' : 'choice'} onClick={() => this.handleChangePaper(5)}>
-                    <img src={Paper5} alt="paper5" />
-                    <span>Marron</span>
-                </div>
-                <div className={this.state.paper === 6 ? 'choice active' : 'choice'} onClick={() => this.handleChangePaper(6)}>
-                    <img src={Paper6} alt="paper6" />
-                    <span>Pourpre</span>
-                </div>
-                <div className={this.state.paper === 7 ? 'choice active' : 'choice'} onClick={() => this.handleChangePaper(7)}>
-                    <img src={Paper7} alt="paper7" />
-                    <span>Gris</span>
-                </div>
-                <div className={this.state.paper === 8 ? 'choice active' : 'choice'} onClick={() => this.handleChangePaper(8)}>
-                    <img src={Paper8} alt="paper8" />
-                    <span>Noir</span>
-                </div>
-            </div>
+    paperRender(paper, type) {
+        return (<div key={paper} className={classNames('choice', { active: this.state.paper === paper })} onClick={() => this.handleChangePaper(paper)}>
+            <img src={paper} alt="paper" onDragStart={false} />
+            <span>{type}</span>
         </div>);
     }
 
     render() {
         return (<Row>
-            { this.props.book.bookbinding === 'modern' ? this.modernPaperRender() : this.conservationPaperRender() }
+            <p className="title">Choisis ton papier <span className="hint--top hint--large" aria-label={description}>
+                <span className={classNames('link', { hide: this.props.book.bookbinding !== 'modern' })}>[Plus d&apos;infos]</span></span> :
+            </p>
+            <div className="choices paper">
+                {
+                    this.props.book.bookbinding === 'modern' ?
+                    papers.slice(0, 5).map(({ paper, type }) => this.paperRender(paper, type)) :
+                    papers.slice(5).map(({ paper, type }) => this.paperRender(paper, type))
+                }
+            </div>
         </Row>);
     }
 }

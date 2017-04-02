@@ -6,6 +6,8 @@ Bookbuilder
 
 Bookbuilder for larbreapages.fr with react.js
 
+[![screenshot](https://raw.githubusercontent.com/larbreapages/bookbuilder/master/screenshot.png)](https://raw.githubusercontent.com/larbreapages/bookbuilder/master/screenshot.png)
+
 Install
 ---
 

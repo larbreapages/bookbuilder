@@ -27,6 +27,9 @@ start-selenium:
 test: ## Run tests
 	@ NODE_ENV=test ./node_modules/.bin/mocha -t 99999999 --compilers js:babel-core/register --require babel-polyfill test/hook.js test/specs/*.spec.js
 
+test-mobile: ## Run tests mobile
+	@ NODE_ENV=test RESOLUTION='320x480' ./node_modules/.bin/mocha -t 99999999 --compilers js:babel-core/register --require babel-polyfill test/hook.js test/specs/*.spec.js
+
 browser-sync:
 	@ ./node_modules/.bin/browser-sync start --proxy "http://0.0.0.0:${PORT}" --files "dist/*"
 

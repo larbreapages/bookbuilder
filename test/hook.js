@@ -24,6 +24,11 @@ before(() => {
     global.browser = client.init();
     global.assert = assert;
 
+    if (process.env.RESOLUTION) {
+        const [width, height] = process.env.RESOLUTION.split('x');
+        global.browser.setViewportSize({ width: Number(width), height: Number(height) });
+    }
+
     return browser;
 });
 

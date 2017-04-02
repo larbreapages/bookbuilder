@@ -9,7 +9,7 @@ describe('app', () => {
     });
 
     it('should select bookbinding', async () => {
-        await browser.click('.choices .choice:last-child img');
+        await browser.click('.gallery:last-child .zoom');
         await browser.click('.footer button:last-child');
     });
 
@@ -32,7 +32,10 @@ describe('app', () => {
     });
 
     it('should check terms', async () => {
-        await browser.click('.ant-checkbox-input');
+        await browser.click('.ant-checkbox-wrapper .link');
+        await browser.waitForVisible('.ant-modal-close', 3000);
+        await browser.click('.ant-modal-close');
+        await browser.waitForVisible('.footer button:last-child', 3000);
         await browser.click('.footer button:last-child');
     });
 

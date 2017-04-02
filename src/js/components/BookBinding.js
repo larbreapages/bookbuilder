@@ -3,44 +3,20 @@ import Button from 'antd/lib/button';
 import Row from 'antd/lib/row';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { chooseBookBinding, choosePaper, nextStep } from '../actions/index';
+import { nextStep } from '../actions/index';
 import ModernImg from '../../images/modern.png';
 import ConservationImg from '../../images/conservation.png';
+import Gallery from './Gallery';
 import Price from './Price';
 
 class BookBinding extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            bookbinding: props.book.bookbinding,
-        };
-    }
-
-    handleChange(value) {
-        this.props.chooseBookBinding(value);
-        this.setState({ bookbinding: value });
-    }
-
     render() {
         return (<div className="component">
             <Row>
                 <p className="title">Choisis un type de reliure :</p>
-                <div className="choices bookbinding">
-                    <div className={this.state.bookbinding === 'modern' ? 'choice active' : 'choice'} onClick={() => this.handleChange('modern')}>
-                        <div
-                            className="hint--top hint--large"
-                            aria-label="Reliure copte possédant une excellente ouverture. Idéal pour écrire ou pour dessiner (papier blanc 120g)."
-                        >
-                            <img src={ModernImg} alt="modern" />
-                            <span className="center">Reliure moderne</span>
-                        </div>
-                    </div>
-                    <div className={this.state.bookbinding === 'conservation' ? 'choice active' : 'choice'} onClick={() => this.handleChange('conservation')}>
-                        <div className="hint--top hint--large" aria-label="Reliure souple en papier avec couture semi-apparente. Le carnet parfait pour rédiger toutes vos notes (papier blanc 120g).">
-                            <img src={ConservationImg} alt="conservation" />
-                            <span className="center">Reliure de conservation</span>
-                        </div>
-                    </div>
+                <div className="galleries">
+                    <Gallery images={[ModernImg, 'http://fakeimg.pl/300', 'http://fakeimg.pl/350']} text="Reliure moderne" type="modern" />
+                    <Gallery images={[ConservationImg, 'http://fakeimg.pl/500', 'http://fakeimg.pl/450']} text="Reliure de conservation" type="conservation" />
                 </div>
             </Row>
             <div className="footer">
@@ -64,7 +40,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ chooseBookBinding, choosePaper, nextStep }, dispatch);
+    return bindActionCreators({ nextStep }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(BookBinding);

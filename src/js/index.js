@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import { loadState, saveState, removeState } from './localStorage';
-import { computeTVA } from './utils';
+import { computeTVA, round } from './utils';
 import reducers from './reducers';
 import App from './components/App';
 
@@ -13,7 +13,6 @@ const store = createStore(
     persistedState,
 );
 
-const round = (value, decimals) => Number(`${Math.round(`${value}e${decimals}`)}e-${decimals}`);
 store.subscribe(() => {
     saveState({ book: store.getState().book, steps: store.getState().steps });
     store.getState().book.tva = computeTVA(store.getState().book.price);

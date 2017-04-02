@@ -23,7 +23,7 @@ module.exports = {
             { test: /\.(njk|nunjucks)$/, use: 'nunjucks-loader' },
             { test: /\.jsx?$/, use: 'babel-loader', exclude: /node_modules/ },
             { test: /\.less$/, use: ExtractTextPlugin.extract({ fallback: 'style-loader', use: ['css-loader', 'less-loader'] }) },
-            { test: /\.s?css$/, use: ExtractTextPlugin.extract({ fallback: 'style-loader', use: ['css-loader', 'sass-loader'] }) },
+            { test: /\.s?css$/, use: ExtractTextPlugin.extract({ fallback: 'style-loader', use: ['css-loader', 'postcss-loader', 'sass-loader'] }) },
             {
                 test: /\.js$/,
                 loader: StringReplacePlugin.replace({

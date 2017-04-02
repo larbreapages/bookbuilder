@@ -5,8 +5,8 @@ import Col from 'antd/lib/col';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { chooseGilding } from '../actions/index';
-import GildingImg from '../../images/gilding.png';
-import GildingImg2 from '../../images/gilding2.png';
+import GildingImg from '../../../images/gilding.png';
+import GildingImg2 from '../../../images/gilding2.png';
 
 const Gilding = (props) => {
     const gildingText1 = 'Ici, le prénom « LISON » a été inscrit en majuscules à la feuille d’or sur une étiquette de couleur puis disposé sur le recto du carnet.';

@@ -3,11 +3,11 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import Row from 'antd/lib/row';
 import { chooseWire } from '../actions/index';
-import Wire1 from '../../images/wire_1.png';
-import Wire2 from '../../images/wire_2.png';
-import Wire3 from '../../images/wire_3.png';
-import Wire4 from '../../images/wire_4.png';
-import Wire5 from '../../images/wire_5.png';
+import Wire1 from '../../../images/wire_1.png';
+import Wire2 from '../../../images/wire_2.png';
+import Wire3 from '../../../images/wire_3.png';
+import Wire4 from '../../../images/wire_4.png';
+import Wire5 from '../../../images/wire_5.png';
 
 const wires = [
     { wire: Wire1, type: 'Violet' },

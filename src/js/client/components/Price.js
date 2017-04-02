@@ -3,10 +3,8 @@ import Tag from 'antd/lib/tag';
 import { connect } from 'react-redux';
 
 const Price = (props) => {
-    const priceTTCText = `${props.book.priceTTC} € T.T.C.`;
-
     return (<div>
-        <span className="hint--top" aria-label={priceTTCText}>
+        <span className="hint--top" aria-label={`${props.book.priceTTC} € T.T.C.`}>
             <Tag className="price">
                 <b>{props.book.price} € H.T.</b>
             </Tag>
@@ -14,10 +12,6 @@ const Price = (props) => {
     </div>);
 };
 
-function mapStateToProps(state) {
-    return {
-        book: state.book,
-    };
-}
+const mapStateToProps = state => ({ book: state.book });
 
 export default connect(mapStateToProps)(Price);

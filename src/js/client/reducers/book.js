@@ -1,4 +1,4 @@
-import { computePrice, shippingCosts } from '../utils';
+import { computePrice, shippingCosts } from '../../shared/utils';
 
 const initialState = {
     price: 0,

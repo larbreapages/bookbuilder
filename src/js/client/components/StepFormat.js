@@ -11,7 +11,7 @@ import Price from './Price';
 
 const RadioGroup = Radio.Group;
 
-class Format extends Component {
+class StepFormat extends Component {
     handleChange(value) {
         this.props.chooseFormat(value);
         this.setState({ selectedValue: value });
@@ -40,15 +40,7 @@ class Format extends Component {
     }
 }
 
-function mapStateToProps(state) {
-    return {
-        book: state.book,
-        accept: state.steps.acceptConditions,
-    };
-}
+const mapStateToProps = state => ({ book: state.book, accept: state.steps.acceptConditions });
+const mapDispatchToProps = dispatch => bindActionCreators({ chooseFormat, acceptConditions, previousStep, nextStep }, dispatch);
 
-function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ chooseFormat, acceptConditions, previousStep, nextStep }, dispatch);
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Format);
+export default connect(mapStateToProps, mapDispatchToProps)(StepFormat);

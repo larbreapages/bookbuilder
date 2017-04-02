@@ -14,12 +14,7 @@ const Error = (props) => {
     </div>);
 };
 
-function mapStateToProps(state) {
-    return { ...state };
-}
-
-function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ reset }, dispatch);
-}
+const mapStateToProps = state => ({ ...state });
+const mapDispatchToProps = dispatch => bindActionCreators({ reset }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Error);

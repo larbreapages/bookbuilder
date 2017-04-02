@@ -12,14 +12,7 @@ const Pages = (props) => {
     </Row>);
 };
 
-function mapStateToProps(state) {
-    return {
-        book: state.book,
-    };
-}
-
-function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ choosePagesNumber }, dispatch);
-}
+const mapStateToProps = state => ({ book: state.book });
+const mapDispatchToProps = dispatch => bindActionCreators({ choosePagesNumber }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Pages);

@@ -29,19 +29,8 @@ const papers = [
 const description = 'Ces papiers ont été réalisés de manière artisanale par les artistes Zeynep Uysal Kog et Katalin Perry (papiers marbrés à la "cuve").';
 
 class Paper extends Component {
-    constructor(props) {
-        super(props);
-        this.state = { paper: props.paper };
-        this.handleChangePaper.bind(this);
-    }
-
-    handleChangePaper(value) {
-        this.props.choosePaper(value);
-        this.setState({ paper: value });
-    }
-
     paperRender(paper, type) {
-        return (<div key={paper} className={classNames('choice', { active: this.state.paper === paper })} onClick={() => this.handleChangePaper(paper)}>
+        return (<div key={paper} className={classNames('choice', { active: this.props.book.paper === paper })} onClick={() => this.props.choosePaper(paper)}>
             <img src={paper} alt="paper" onDragStart={false} />
             <span>{type}</span>
         </div>);
@@ -63,14 +52,7 @@ class Paper extends Component {
     }
 }
 
-function mapStateToProps(state) {
-    return {
-        book: state.book,
-    };
-}
-
-function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ choosePaper }, dispatch);
-}
+const mapStateToProps = state => ({ book: state.book });
+const mapDispatchToProps = dispatch => bindActionCreators({ choosePaper }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Paper);

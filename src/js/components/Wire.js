@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import Row from 'antd/lib/row';
@@ -7,53 +7,31 @@ import Wire1 from '../../images/wire_1.png';
 import Wire2 from '../../images/wire_2.png';
 import Wire3 from '../../images/wire_3.png';
 import Wire4 from '../../images/wire_4.png';
+import Wire5 from '../../images/wire_5.png';
 
-class Wire extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            wire: props.book.wire,
-        };
-    }
+const wires = [
+    { wire: Wire1, type: 'Violet' },
+    { wire: Wire2, type: 'Bleu Canard' },
+    { wire: Wire3, type: 'Rouge Brique' },
+    { wire: Wire4, type: 'Jaune Canard' },
+    { wire: Wire5, type: 'Crème' },
+];
 
-    handleChangeWire(value) {
-        this.props.chooseWire(value);
-        this.setState({ wire: value });
-    }
+const Wire = (props) => {
+    return (<Row>
+        <p className="title">Choisis la couleur de ton fil :</p>
+        <div className="choices wire">
+            {wires.map(({ wire, type }) =>
+                <div className={props.book.wire === wire ? 'choice active' : 'choice'} onClick={() => props.chooseWire(wire)} key={wire}>
+                    <img src={wire} alt="wire1" />
+                    <span>{type}</span>
+                </div>,
+            )}
+        </div>
+    </Row>);
+};
 
-    render() {
-        return (<Row>
-            <p className="title">Choisis la couleur de ton fil :</p>
-            <div className="choices wire">
-                <div className={this.state.wire === 1 ? 'choice active' : 'choice'} onClick={() => this.handleChangeWire(1)}>
-                    <img src={Wire1} alt="wire1" />
-                    <span>Violet</span>
-                </div>
-                <div className={this.state.wire === 2 ? 'choice active' : 'choice'} onClick={() => this.handleChangeWire(2)}>
-                    <img src={Wire2} alt="wire2" />
-                    <span>Bleu Canard</span>
-                </div>
-                <div className={this.state.wire === 3 ? 'choice active' : 'choice'} onClick={() => this.handleChangeWire(3)}>
-                    <img src={Wire3} alt="wire3" />
-                    <span>Rouge Brique</span>
-                </div>
-                <div className={this.state.wire === 4 ? 'choice active' : 'choice'} onClick={() => this.handleChangeWire(4)}>
-                    <img src={Wire4} alt="wire4" />
-                    <span>Jaune Canard</span>
-                </div>
-            </div>
-        </Row>);
-    }
-}
-
-function mapStateToProps(state) {
-    return {
-        book: state.book,
-    };
-}
-
-function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ chooseWire }, dispatch);
-}
+const mapStateToProps = state => ({ book: state.book });
+const mapDispatchToProps = dispatch => bindActionCreators({ chooseWire }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Wire);

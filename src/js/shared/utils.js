@@ -147,7 +147,5 @@ export const checkStatus = (response) => {
         return response;
     }
 
-    const error = new Error(response.statusText);
-    error.response = response;
-    throw error;
+    throw (new Error(response.statusText)).response;
 };

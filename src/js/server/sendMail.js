@@ -15,7 +15,7 @@ const htmlOutput = mjml2html(`<mjml>
     <mj-body>
         <mj-container background-color="#F1F1F1">
             <mj-section locked="true" padding-bottom="20"></mj-section>
-            <mj-section background-color="#ffffff">
+            <mj-section background-color="#FFFFFF">
                 <mj-column>
                     <mj-image href="https://larbreapages.fr" src="https://framapic.org/OT3L63EFS7re/g2IYJlOxZppA.png" align="center" width="360" padding-top="0">
                     </mj-image>
@@ -35,6 +35,4 @@ const mailOptions = {
     html: htmlOutput,
 };
 
-const sendMail = email => transporter.sendMail({ ...mailOptions, to: email });
-
-export default sendMail;
+export default email => transporter.sendMail({ ...mailOptions, to: email });

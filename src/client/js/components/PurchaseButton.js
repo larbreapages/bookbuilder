@@ -4,7 +4,7 @@ import Button from 'antd/lib/button';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { nextStep, chooseStep } from '../actions/index';
-import { checkStatus } from '../../shared/utils';
+import { checkStatus } from '../../../shared/utils';
 
 const PurchaseButton = (props) => {
     const onToken = (token) => {

@@ -6,20 +6,20 @@ import { previousStep, nextStep } from '../actions/index';
 import Wire from './Wire';
 import Paper from './Paper';
 import Price from './Price';
-import PaperImg1 from '../../../images/paper_1.png';
-import PaperImg2 from '../../../images/paper_2.png';
-import PaperImg3 from '../../../images/paper_3.png';
-import PaperImg4 from '../../../images/paper_4.png';
-import PaperImg5 from '../../../images/paper_5.png';
-import PaperImg6 from '../../../images/paper_6.png';
-import PaperImg7 from '../../../images/paper_7.png';
-import PaperImg8 from '../../../images/paper_8.png';
-import PaperImg9 from '../../../images/paper_9.png';
-import WireImg1 from '../../../images/wire_1.png';
-import WireImg2 from '../../../images/wire_2.png';
-import WireImg3 from '../../../images/wire_3.png';
-import WireImg4 from '../../../images/wire_4.png';
-import WireImg5 from '../../../images/wire_5.png';
+import PaperImg1 from '../../images/paper_1.png';
+import PaperImg2 from '../../images/paper_2.png';
+import PaperImg3 from '../../images/paper_3.png';
+import PaperImg4 from '../../images/paper_4.png';
+import PaperImg5 from '../../images/paper_5.png';
+import PaperImg6 from '../../images/paper_6.png';
+import PaperImg7 from '../../images/paper_7.png';
+import PaperImg8 from '../../images/paper_8.png';
+import PaperImg9 from '../../images/paper_9.png';
+import WireImg1 from '../../images/wire_1.png';
+import WireImg2 from '../../images/wire_2.png';
+import WireImg3 from '../../images/wire_3.png';
+import WireImg4 from '../../images/wire_4.png';
+import WireImg5 from '../../images/wire_5.png';
 
 const modernPapers = [
     { paper: 'Vagues', image: PaperImg1 },

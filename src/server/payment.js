@@ -8,9 +8,7 @@ const payment = express();
 
 payment.all('/save-stripe-token', (req, res) => {
     const book = req.body.book;
-    if (!book) {
-        return res.status(500).send({ error: 'Something failed!' });
-    }
+    if (!book) return res.status(500).send({ error: 'Something failed!' });
 
     const stripe = s(stripeSecretKey);
     const token = req.body.token;

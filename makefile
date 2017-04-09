@@ -7,18 +7,19 @@ install: ## Install application
 	@ ./node_modules/.bin/selenium-standalone install
 
 run: ## Run application
-	@ NODE_ENV=production PORT=${PORT} node dist/server.js
+	@ NODE_ENV=production PORT=${PORT} node dist/server/index.js
 
 dev: ## Run dev environment
-	@ NODE_ENV=development PORT=${PORT} ./node_modules/.bin/babel-node src/server/server.js & make watch & make browser-sync
+	@ NODE_ENV=development PORT=${PORT} ./node_modules/.bin/pm2 start --watch src/ --no-daemon src/server/index.js --interpreter ./node_modules/.bin/babel-node & make watch & make browser-sync
 
 watch: ## Watch
 	@ mkdir -p dist && cp favicon.ico dist/
 	@ ./node_modules/.bin/webpack --watch -d
 
 build: ## Build with webpack
-	@ mkdir -p dist && cp favicon.ico dist/
-	@ NODE_ENV=production ./node_modules/.bin/babel --minified --compact true -d dist/ src/server/ src/shared/
+	@ mkdir -p dist/server dist/shared && cp favicon.ico dist/
+	@ NODE_ENV=production ./node_modules/.bin/babel --minified --compact true -d dist/server src/server/
+	@ NODE_ENV=production ./node_modules/.bin/babel --minified --compact true -d dist/shared src/shared/
 	@ NODE_ENV=production ./node_modules/.bin/webpack -p --progress --colors
 
 start-selenium: ## Start Selenium Server

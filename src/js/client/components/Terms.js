@@ -1,3 +1,8 @@
+/* eslint-disable */
+import React from 'react';
+
+export default () => (<div className="terms">
+
 <p>Les conditions générales de ventes décrites ci-après détaillent les droits et obligations de L’Atelier de Reliure d’Art <b>L’Arbre à Pages</b> et de ses clients dans le cadre de la vente des carnets personnalisés et sur mesure composés sur son site <a href="https://larbreapages.fr"><em>larbreapages.fr</em></a> à partir du module de personnalisation.</p>
 
 <p>Toute prestation réalisée par <b>Camille Aubert / Atelier de Reliure d’Art l’Arbre à Pages</b> implique l’adhésion sans réserve de l’acheteur aux présentes conditions générales de vente :</p>
@@ -57,3 +62,4 @@
 <p>108 rue Charles III</p>
 <p>54000 Nancy</p>
 
+</div>);

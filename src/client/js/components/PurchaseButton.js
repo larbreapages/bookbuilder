@@ -4,7 +4,7 @@ import Button from 'antd/lib/button';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { nextStep, chooseStep } from '../actions/index';
-import { checkStatus } from '../utils';
+import { checkStatus } from '../../../shared/utils';
 
 const PurchaseButton = (props) => {
     const onToken = (token) => {
@@ -26,7 +26,7 @@ const PurchaseButton = (props) => {
         <StripeCheckout
             name="L'Arbre à Pages"
             description="Reliure d'art"
-            image="https://larbreapages.fr/logo-c8b33fb.png"
+            image="https://larbreapages.fr/logo-12e811a.svg"
             amount={props.book.total * 100}
             currency="EUR"
             stripeKey={CONFIG.publishableKey}
@@ -38,15 +38,7 @@ const PurchaseButton = (props) => {
     );
 };
 
-function mapStateToProps(state) {
-    return {
-        book: state.book,
-        acceptConditions: state.steps.acceptConditions,
-    };
-}
-
-function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ nextStep, chooseStep }, dispatch);
-}
+const mapStateToProps = state => ({ book: state.book, acceptConditions: state.steps.acceptConditions });
+const mapDispatchToProps = dispatch => bindActionCreators({ nextStep, chooseStep }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(PurchaseButton);

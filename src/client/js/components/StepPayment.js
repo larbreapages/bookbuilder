@@ -1,19 +1,18 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Checkbox from 'antd/lib/checkbox';
 import Modal from 'antd/lib/modal';
 import Button from 'antd/lib/button';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { acceptConditions, previousStep } from '../actions/index';
-import { convertToText } from '../utils';
-import terms from '../views/terms.njk';
+import { translate } from '../../../shared/utils';
 import PurchaseButton from './PurchaseButton';
+import Terms from './Terms';
 import Price from './Price';
 
-class Payment extends React.Component {
-    constructor(props) {
-        super(props);
-        this.bookText = convertToText(this.props.book);
+class StepPayment extends Component {
+    constructor() {
+        super();
         this.state = { visible: false };
         this.showModal = this.showModal.bind(this);
         this.handleCancel = this.handleCancel.bind(this);
@@ -34,12 +33,12 @@ class Payment extends React.Component {
                 <hr />
                 <table>
                     <tbody>
-                        <tr><td>Reliure :</td><td>{this.bookText.bookbinding}</td></tr>
-                        <tr><td>Papier :</td><td>{this.bookText.paper}</td></tr>
-                        { this.props.book.bookbinding === 'modern' && <tr><td>Couleur du fil :</td><td>{this.bookText.wire}</td></tr> }
-                        <tr><td>Format :</td><td>{this.bookText.format}</td></tr>
+                        <tr><td>Reliure :</td><td>{ translate(this.props.book.bookbinding) }</td></tr>
+                        <tr><td>Papier :</td><td>{ this.props.book.paper }</td></tr>
+                        { this.props.book.bookbinding === 'modern' && <tr><td>Couleur du fil :</td><td>{this.props.book.wire}</td></tr> }
+                        <tr><td>Format :</td><td>{ translate(this.props.book.format) }</td></tr>
                         <tr><td>Nombre de pages :</td><td>{this.props.book.pages} (papier blanc 120g)</td></tr>
-                        <tr><td>Dorure or :</td><td>{this.bookText.gilding}</td></tr>
+                        <tr><td>Dorure or :</td><td>{this.props.book.gilding || 'Aucune'}</td></tr>
                         <tr><td style={{ paddingTop: '20px' }}>Total HT :</td><td style={{ paddingTop: '20px' }}>{this.props.book.price} €</td></tr>
                         <tr><td>Frais d&apos;envoi :</td><td>{this.props.book.shippingCosts} €</td></tr>
                         <tr><td>TVA :</td><td>{this.props.book.tva} €</td></tr>
@@ -62,21 +61,13 @@ class Payment extends React.Component {
                 onCancel={this.handleCancel}
                 footer={[<Button key="back" size="large" onClick={this.handleCancel}>Fermer</Button>]}
             >
-                <div className="terms" dangerouslySetInnerHTML={{ __html: terms.render() }} />
+                <Terms />
             </Modal>
         </div>);
     }
 }
 
-function mapStateToProps(state) {
-    return {
-        book: state.book,
-        accept: state.steps.acceptConditions,
-    };
-}
+const mapStateToProps = state => ({ book: state.book, accept: state.steps.acceptConditions });
+const mapDispatchToProps = dispatch => bindActionCreators({ acceptConditions, previousStep }, dispatch);
 
-function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ acceptConditions, previousStep }, dispatch);
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Payment);
+export default connect(mapStateToProps, mapDispatchToProps)(StepPayment);

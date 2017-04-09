@@ -1,12 +1,11 @@
-import { computePrice, shippingCosts } from '../utils';
+import { computePrice } from '../../../shared/utils';
 
 const initialState = {
     price: 0,
     priceTTC: 0,
     format: 'small',
     pages: 72,
-    gilding: '',
-    shippingCosts,
+    shippingCosts: 5,
 };
 
 export default function book(state = initialState, action) {

@@ -78,7 +78,7 @@
 
         @media (min-width: 768px) {
             .choice {
-                margin-right: 10px;
+                margin-right: 6px;
             }
         }
 
@@ -120,13 +120,13 @@
         &.paper, &.wire {
             img {
                 transition: 0.4s ease;
-                width: 200px;
+                width: 210px;
             }
 
             .choice {
                 float: left;
                 position: relative;
-                width: 200px;
+                width: 210px;
                 overflow: hidden;
                 max-height: 140px;
             }
@@ -280,6 +280,10 @@
                 max-height: $height-gallery;
             }
         }
+    }
+
+    .hide {
+        display: none;
     }
 }
 

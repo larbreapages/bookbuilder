@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Checkbox from 'antd/lib/checkbox';
 import Modal from 'antd/lib/modal';
 import Button from 'antd/lib/button';
@@ -10,7 +10,7 @@ import PurchaseButton from './PurchaseButton';
 import Terms from './Terms';
 import Price from './Price';
 
-class StepPayment extends React.Component {
+class StepPayment extends Component {
     constructor() {
         super();
         this.state = { visible: false };

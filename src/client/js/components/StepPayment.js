@@ -5,7 +5,7 @@ import Button from 'antd/lib/button';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { acceptConditions, previousStep } from '../actions/index';
-import { translate } from '../../shared/utils';
+import { translate } from '../../../shared/utils';
 import PurchaseButton from './PurchaseButton';
 import Terms from './Terms';
 import Price from './Price';

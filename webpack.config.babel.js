@@ -7,9 +7,9 @@ import config from 'config';
 module.exports = {
     entry: {
         index: [
-            './src/js/client/index.js',
-            './src/css/main.scss',
-            './src/css/main.less',
+            './src/client/js/index.js',
+            './src/client/css/main.scss',
+            './src/client/css/main.less',
         ],
     },
     output: {
@@ -45,7 +45,7 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             filename: 'index.html',
-            template: `${__dirname}/src/index.html`,
+            template: `${__dirname}/src/client/index.html`,
             hash: true,
         }),
         new webpack.DefinePlugin({

@@ -15,6 +15,7 @@ store.subscribe(() => {
     store.getState().book.total = round(store.getState().book.priceTTC + store.getState().book.shippingCosts, 2);
     if (store.getState().steps.reset) {
         removeState();
+        location.reload();
     }
 });
 

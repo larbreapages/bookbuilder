@@ -77,67 +77,35 @@ export const round = (value, decimals) => Number(`${Math.round(`${value}e${decim
 
 export const computeTVA = price => round((price * 20) / 100, 2);
 
-export const computePrice = ({ bookbinding, format, pages, gilding = '' }) =>
-    round(computeFormatPrice(bookbinding, format) +
-        computePagePrice(bookbinding, format, pages) +
-        computeGildingPrice(gilding), 2);
+export const computePrice = ({ bookbinding, format, pages, gilding = '' }) => {
+    return round(computeFormatPrice(bookbinding, format) +
+    computePagePrice(bookbinding, format, pages) +
+    computeGildingPrice(gilding), 2);
+};
 
-export const convertToText = (book) => {
-    const wires = [
-        'Violet',
-        'Bleu Canard',
-        'Rouge Brique',
-        'Jaune Canard',
-    ];
-
-    const papers = [
-        'Vagues',
-        'Bulles',
-        'Brume',
-        'Pamplemousse',
-        'Marron',
-        'Pourpre',
-        'Gris',
-        'Noir',
-    ];
-
-    const formats = {
+export const translate = (text) => {
+    return {
         small: 'Petit (16 x 12 cm)',
         medium: 'Moyen (20 x 16 cm)',
         large: 'Grand (24 x 20 cm)',
-    };
-
-    const bookbindings = {
         modern: 'Moderne',
         conservation: 'Conservation',
-    };
-
-    return {
-        bookbinding: bookbindings[book.bookbinding],
-        gilding: book.gilding.trim() || 'Aucune',
-        format: formats[book.format],
-        paper: papers[book.paper - 1],
-        wire: wires[book.wire - 1],
-    };
+    }[text];
 };
 
 export const createDescription = (book) => {
-    const bookText = convertToText(book);
-
-    let description = `Reliure ${bookText.bookbinding} - Papier blanc 120g ${bookText.paper}`;
-    description += (book.bookbinding === 'modern' ? ` - Fil de couture couleur ${bookText.wire}` : '');
-    description += ` - Format ${bookText.format} - ${book.pages} pages`;
-    description += (book.gilding ? ` - Avec la mention "${bookText.gilding}" couleur or.` : '');
+    let description = `Reliure ${translate(book.bookbinding)} - Papier blanc 120g ${book.paper}`;
+    description += (book.bookbinding === 'modern' ? ` - Fil de couture couleur ${book.wire}` : '');
+    description += ` - Format ${translate(book.format)} - ${book.pages} pages`;
+    description += (book.gilding ? ` - Avec la mention "${book.gilding}" couleur or.` : '');
 
     return description;
 };
 
-export const shippingCosts = 5;
-
 export const checkValidPrice = (book) => {
     const validPrice = computePrice(book);
     const validTvaPrice = computeTVA(validPrice);
-    const validTotalPrice = validPrice + validTvaPrice + shippingCosts;
+    const validTotalPrice = validPrice + validTvaPrice + book.shippingCosts;
 
     return book.total === validTotalPrice;
 };
@@ -147,7 +115,5 @@ export const checkStatus = (response) => {
         return response;
     }
 
-    const error = new Error(response.statusText);
-    error.response = response;
-    throw error;
+    throw (new Error(response.statusText)).response;
 };

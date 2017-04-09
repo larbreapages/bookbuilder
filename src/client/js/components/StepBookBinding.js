@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Button from 'antd/lib/button';
 import Row from 'antd/lib/row';
 import { bindActionCreators } from 'redux';
@@ -17,7 +17,7 @@ import ConservationImg5 from '../../images/gilding2.png';
 import Gallery from './Gallery';
 import Price from './Price';
 
-const BookBinding = (props) => {
+const StepBookBinding = (props) => {
     return (<div className="component">
         <Row>
             <p className="title">Choisis un type de reliure :</p>
@@ -47,14 +47,7 @@ const BookBinding = (props) => {
     </div>);
 };
 
-function mapStateToProps(state) {
-    return {
-        book: state.book,
-    };
-}
+const mapStateToProps = state => ({ book: state.book });
+const mapDispatchToProps = dispatch => bindActionCreators({ nextStep }, dispatch);
 
-function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ nextStep }, dispatch);
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(BookBinding);
+export default connect(mapStateToProps, mapDispatchToProps)(StepBookBinding);

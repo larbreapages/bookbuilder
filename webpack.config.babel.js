@@ -7,9 +7,9 @@ import config from 'config';
 module.exports = {
     entry: {
         index: [
-            './src/js/index.js',
-            './src/css/main.scss',
-            './src/css/main.less',
+            './src/client/js/index.js',
+            './src/client/css/main.scss',
+            './src/client/css/main.less',
         ],
     },
     output: {
@@ -20,7 +20,6 @@ module.exports = {
         rules: [
             { test: /\.html$/, use: 'html-loader' },
             { test: /\.json$/, use: 'json-loader' },
-            { test: /\.(njk|nunjucks)$/, use: 'nunjucks-loader' },
             { test: /\.jsx?$/, use: 'babel-loader', exclude: /node_modules/ },
             { test: /\.less$/, use: ExtractTextPlugin.extract({ fallback: 'style-loader', use: ['css-loader', 'less-loader'] }) },
             { test: /\.s?css$/, use: ExtractTextPlugin.extract({ fallback: 'style-loader', use: ['css-loader', 'postcss-loader', 'sass-loader'] }) },
@@ -46,7 +45,7 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             filename: 'index.html',
-            template: `${__dirname}/src/index.html`,
+            template: `${__dirname}/src/client/index.html`,
             hash: true,
         }),
         new webpack.DefinePlugin({

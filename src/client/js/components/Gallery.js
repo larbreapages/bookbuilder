@@ -10,17 +10,12 @@ const Gallery = class extends Component {
     constructor(props) {
         super(props);
         this.state = { firstImage: props.images[0] };
-        this.handleChange = this.handleChange.bind(this);
-    }
-
-    handleChange(value) {
-        this.props.chooseBookBinding(value);
     }
 
     render() {
         $(document).ready(() => $('.zoom').trigger('zoom.destroy').zoom({ magnify: 0.8, touch: false }));
         return (<div className="gallery">
-            <div className={classNames('zoom', { active: this.props.book.bookbinding === this.props.type })} onClick={() => this.handleChange(this.props.type)}>
+            <div className={classNames('zoom', { active: this.props.book.bookbinding === this.props.type })} onClick={() => this.props.chooseBookBinding(this.props.type)}>
                 <img src={this.state.firstImage} alt="bookbinding" />
                 <span>{this.props.text}</span>
             </div>

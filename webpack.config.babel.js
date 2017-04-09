@@ -20,7 +20,6 @@ module.exports = {
         rules: [
             { test: /\.html$/, use: 'html-loader' },
             { test: /\.json$/, use: 'json-loader' },
-            { test: /\.(njk|nunjucks)$/, use: 'nunjucks-loader' },
             { test: /\.jsx?$/, use: 'babel-loader', exclude: /node_modules/ },
             { test: /\.less$/, use: ExtractTextPlugin.extract({ fallback: 'style-loader', use: ['css-loader', 'less-loader'] }) },
             { test: /\.s?css$/, use: ExtractTextPlugin.extract({ fallback: 'style-loader', use: ['css-loader', 'postcss-loader', 'sass-loader'] }) },

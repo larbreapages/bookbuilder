@@ -61,7 +61,7 @@
     "body-parser": "^1.17.1",
     "classnames": "^2.2.5",
     "compression": "^1.6.2",
-    "config": "git+https://github.com/jcherqui/node-config",
+    "config": "git+https://github.com/stoneo/node-config",
     "expose-loader": "^0.7.3",
     "express": "^4.15.2",
     "hint.css": "^2.4.1",

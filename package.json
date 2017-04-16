@@ -64,6 +64,7 @@
     "config": "git+https://github.com/stoneo/node-config",
     "expose-loader": "^0.7.3",
     "express": "^4.15.2",
+    "font-awesome": "^4.7.0",
     "hint.css": "^2.4.1",
     "jquery": "^3.2.1",
     "jquery-zoom": "^1.7.18",

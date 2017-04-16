@@ -18,7 +18,7 @@ class Paper extends Component {
     render() {
         return (<Row>
             <p className="title">Choisis ton papier <span className="hint--top hint--large" aria-label={description}>
-                <span className={classNames('link', { hide: this.props.book.bookbinding !== 'modern' })}>[Plus d&apos;infos]</span></span> :
+                <span className={classNames({ hide: this.props.book.bookbinding !== 'modern' })}><i className="fa fa-question-circle-o" aria-hidden="true" /></span></span> :
             </p>
             <div className="choices paper">{ this.props.papers.map(paper => this.paperRender(paper)) }</div>
         </Row>);

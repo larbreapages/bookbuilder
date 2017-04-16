@@ -1,6 +1,7 @@
 #bookbuilder {
     @import "~normalize.css/normalize.css";
     @import "~hint.css/hint.min.css";
+    @import "~font-awesome/css/font-awesome.min.css";
 
     &> div[data-reactroot] {
         margin: auto;

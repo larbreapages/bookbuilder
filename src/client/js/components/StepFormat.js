@@ -19,7 +19,7 @@ const StepFormat = (props) => {
     return (<div className="component">
         <div>
             <Row>
-                <p className="title">Choisir ton format :</p>
+                <p className="title">Choisis ton format :</p>
                 <RadioGroup name="format" value={props.book.format} onChange={e => props.chooseFormat(e.target.value)}>
                     { formats.map(({ format, text }) => <Radio key={format} value={format}>{text}</Radio>) }
                 </RadioGroup>

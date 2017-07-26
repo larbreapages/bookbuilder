@@ -61,7 +61,7 @@
     "body-parser": "^1.17.1",
     "classnames": "^2.2.5",
     "compression": "^1.6.2",
-    "config": "git+https://github.com/stoneo/node-config",
+    "config": "git+https://github.com/ston3o/node-config",
     "expose-loader": "^0.7.3",
     "express": "^4.15.2",
     "font-awesome": "^4.7.0",
